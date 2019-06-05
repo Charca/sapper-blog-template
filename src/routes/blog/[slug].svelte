@@ -32,16 +32,10 @@
 	}
 
 	.content :global(pre) {
-		background-color: #f9f9f9;
 		box-shadow: inset 1px 1px 5px rgba(0,0,0,0.05);
-		padding: 0.5em;
+		padding: 0;
 		border-radius: 2px;
 		overflow-x: auto;
-	}
-
-	.content :global(pre) :global(code) {
-		background-color: transparent;
-		padding: 0;
 	}
 
 	.content :global(ul) {
