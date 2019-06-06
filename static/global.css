@@ -1,3 +1,7 @@
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 body {
 	margin: 0;
 	font-family: Merriweather, serif;
@@ -20,6 +24,19 @@ a {
 	color: inherit;
 }
 
+p a, h2 a {
+	text-decoration: none;
+	box-shadow: inset 0 -0.12em 0 #fd6378;
+	-webkit-transition: box-shadow .2s ease-in-out, color .2s ease-in-out;
+	transition: box-shadow .2s ease-in-out, color .2s ease-in-out;
+}
+
+p a:hover,
+h2 a:hover {
+	box-shadow: inset 0 -1.5em 0 #fd6378;
+	color: #FFF;
+}
+
 code {
 	font-family: 'SF Mono', menlo, inconsolata, monospace;
 	font-size: calc(1em - 2px);
@@ -27,6 +44,13 @@ code {
 	background-color: #f0f0f0;
 	padding: 0.2em 0.4em;
 	border-radius: 2px;
+	-webkit-font-smoothing: antialiased; /* This needs to be set or some font faced fonts look bold on Mac in Chrome/Webkit based browsers. */
+	-moz-osx-font-smoothing: grayscale; /* Fixes font bold issue in Firefox version 25+ on Mac */
+}
+
+.hljs {
+	font-size: 1em;
+	padding: 1em!important;
 }
 
 @media (min-width: 400px) {

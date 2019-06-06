@@ -15,15 +15,20 @@
   main {
     flex: 1;
     position: relative;
-    max-width: 1200px;
+    margin: 0 auto;
+    max-width: 1400px;
     background-color: white;
     padding: 1em 2em;
-    margin: 0 auto;
     box-sizing: border-box;
     width: 100%;
+    display: flex;
+    flex-direction: column;
   }
 
   footer {
+    margin: 0 auto;
+    max-width: 1400px;
+    width: 100%;
     padding: 1em 2em;
   }
 </style>

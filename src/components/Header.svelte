@@ -8,6 +8,9 @@
 <style>
   header {
     display: flex;
+    margin: 0 auto;
+    max-width: 1400px;
+    width: 100%;
     padding: 1em 2em;
   }
 </style>

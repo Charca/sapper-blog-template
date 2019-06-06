@@ -1,14 +1,15 @@
 <style>
-  .container {
-    display: flex;
-    margin-top: 2em;
-  }
-
-  .copy {
+  .home-container {
+    align-items: center;
     display: flex;
     flex: 1;
-    flex-direction: column;
     justify-content: center;
+    margin: 2em 0;
+    min-height: 400px;
+  }
+
+  .home-copy {
+    flex: 1;
   }
 
   h1 {
@@ -46,13 +47,14 @@
   }
 
   @media (max-width: 800px) {
-    .container {
+    .home-container {
       flex-direction: column;
     }
 
-    .copy {
-      text-align: center;
+    .home-copy {
+      flex: 0;
       padding-bottom: 2em;
+      text-align: center;
     }
   }
 </style>
@@ -61,10 +63,10 @@
   <title>Sapper Blog Template</title>
 </svelte:head>
 
-<div class="container">
-  <div class="copy">
+<div class="home-container">
+  <div class="home-copy">
     <h1>Welcome to your new Sapper Blog</h1>
-    <h2>Check out the docs on GitHub to get started.</h2>
+    <h2>Check out the docs on <a href="https://www.github.com/Charca/sapper-blog-template" target="_blank">GitHub</a> to get started.</h2>
   </div>
 
   <figure>
