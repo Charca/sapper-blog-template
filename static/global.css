@@ -1,9 +1,9 @@
 body {
 	margin: 0;
-	font-family: Roboto, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	font-family: Merriweather, serif;
 	font-size: 14px;
 	line-height: 1.5;
-	color: #333;
+	color: #36393b;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -21,7 +21,7 @@ a {
 }
 
 code {
-	font-family: menlo, inconsolata, monospace;
+	font-family: 'SF Mono', menlo, inconsolata, monospace;
 	font-size: calc(1em - 2px);
 	color: #555;
 	background-color: #f0f0f0;

@@ -1,22 +1,41 @@
 <script>
-	import Nav from '../components/Nav.svelte';
+  import Header from '../components/Header.svelte';
 
-	export let segment;
+  export let segment;
 </script>
 
 <style>
-	main {
-		position: relative;
-		max-width: 56em;
-		background-color: white;
-		padding: 2em;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
+  .layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    min-height: 100vh;
+  }
+
+  main {
+    flex: 1;
+    position: relative;
+    max-width: 1200px;
+    background-color: white;
+    padding: 1em 2em;
+    margin: 0 auto;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  footer {
+    padding: 1em 2em;
+  }
 </style>
 
-<Nav {segment}/>
+<div class="layout">
+  <Header {segment}/>
 
-<main>
-	<slot></slot>
-</main>
+  <main>
+    <slot></slot>
+  </main>
+
+  <footer>
+    <p>&copy; {new Date().getFullYear()} Your Blog. Made with 🍻 by <a href="https://www.twitter.com/Charca" target="_blank">Maxi Ferreira</a>.</p>
+  </footer>
+</div>

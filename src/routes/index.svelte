@@ -1,46 +1,73 @@
 <style>
-	h1, figure, p {
-		text-align: center;
-		margin: 0 auto;
-	}
+  .container {
+    display: flex;
+    margin-top: 2em;
+  }
 
-	h1 {
-		font-size: 2.8em;
-		text-transform: uppercase;
-		font-weight: 700;
-		margin: 0 0 0.5em 0;
-	}
+  .copy {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+  }
 
-	figure {
-		margin: 0 0 1em 0;
-	}
+  h1 {
+    font-size: 4em;
+    font-weight: 700;
+    margin: 0 0 0.5em 0;
+  }
 
-	img {
-		width: 100%;
-		max-width: 400px;
-		margin: 0 0 1em 0;
-	}
+  h2 {
+    line-height: 1.5;
+  }
 
-	p {
-		margin: 1em auto;
-	}
+  figure {
+    margin: 0 1em;
+    text-align: center;
+  }
 
-	@media (min-width: 480px) {
-		h1 {
-			font-size: 4em;
-		}
-	}
+  img {
+    width: 100%;
+    max-width: 400px;
+  }
+
+  @media (max-width: 1020px) {
+    h1 {
+      font-size: 3em;
+    }
+
+    h2 {
+      font-size: 1.2em;
+    }
+
+    img {
+      max-width: 300px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .container {
+      flex-direction: column;
+    }
+
+    .copy {
+      text-align: center;
+      padding-bottom: 2em;
+    }
+  }
 </style>
 
 <svelte:head>
-	<title>Sapper project template</title>
+  <title>Sapper Blog Template</title>
 </svelte:head>
 
-<h1>Great success!</h1>
+<div class="container">
+  <div class="copy">
+    <h1>Welcome to your new Sapper Blog</h1>
+    <h2>Check out the docs on GitHub to get started.</h2>
+  </div>
 
-<figure>
-	<img alt='Borat' src='great-success.png'>
-	<figcaption>HIGH FIVE!</figcaption>
-</figure>
-
-<p><strong>Try editing this file (src/routes/index.svelte) to test live reloading.</strong></p>
+  <figure>
+    <img alt='Person typing on laptop' src='undraw-illustration.svg'>
+  </figure>
+</div>
