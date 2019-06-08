@@ -4,4 +4,7 @@
     width: 50px;
   }
 </style>
-<img alt="Sapper" src='logo-192.png'>
+
+<a href="/">
+  <img alt="Sapper" src='logo-192.png'>
+</a>

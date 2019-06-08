@@ -10,7 +10,7 @@ Welcome to my **Sapper Blog** with `markdown` posts.
 import * as sapper from '@sapper/app';
 
 sapper.start({
-	target: document.querySelector('#sapper')
+  target: document.querySelector('#sapper')
 });
 
 // Scary function

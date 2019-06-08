@@ -13,9 +13,7 @@
   }
 
   h1 {
-    font-size: 4em;
     font-weight: 700;
-    margin: 0 0 0.5em 0;
   }
 
   h2 {
@@ -33,10 +31,6 @@
   }
 
   @media (max-width: 1020px) {
-    h1 {
-      font-size: 3em;
-    }
-
     h2 {
       font-size: 1.2em;
     }
