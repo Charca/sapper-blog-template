@@ -14,9 +14,11 @@
 
   h1 {
     font-weight: 700;
+    margin-bottom: 0.5em;
   }
 
-  h2 {
+  p {
+    font-size: 1.4em;
     line-height: 1.5;
   }
 
@@ -31,7 +33,7 @@
   }
 
   @media (max-width: 1020px) {
-    h2 {
+    p {
       font-size: 1.2em;
     }
 
@@ -60,7 +62,7 @@
 <div class="home-container">
   <div class="home-copy">
     <h1>Welcome to your new Sapper Blog</h1>
-    <h2>Check out the docs on <a href="https://www.github.com/Charca/sapper-blog-template" target="_blank">GitHub</a> to get started.</h2>
+    <p>Check out the docs on <a href="https://www.github.com/Charca/sapper-blog-template" target="_blank">GitHub</a> to get started.</p>
   </div>
 
   <figure>

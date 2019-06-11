@@ -7,8 +7,10 @@
     align-items: flex-end;
     display: flex;
     flex: 1;
-    font-weight: 300;
+    font-family: Rubik, sans-serif;
+    font-weight: 700;
     justify-content: flex-end;
+    text-transform: uppercase;
   }
 
   a {
@@ -16,7 +18,7 @@
     padding: 10px 5px;
     display: block;
     position: relative;
-    margin-left: 10px;
+    margin-left: 20px;
   }
 
   a::before {
@@ -27,13 +29,17 @@
     bottom: 0;
     width: 100%;
     height: 2px;
-    background: #fd6378;
+    background: #BBB;
     transform: scaleX(0);
   }
 
   a:hover::before,
   .selected::before {
     transform: scaleX(1);
+  }
+
+  .selected::before {
+    background: #fd6378;
   }
 </style>
 

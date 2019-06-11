@@ -11,9 +11,35 @@
 </script>
 
 <style>
-  ul {
-    margin: 0 0 1em 0;
-    line-height: 1.5;
+  h2,
+  .post-item-footer {
+    font-family: Rubik, sans-serif;
+    font-weight: 700;
+  }
+
+  .post-item {
+    margin-bottom: 60px;
+  }
+
+  .post-item-footer {
+    display: flex;
+  }
+
+  .post-item-footer a {
+    color: #fd6378;
+    text-decoration: none;
+  }
+
+  .post-item-footer a:hover {
+    text-decoration: underline;
+  }
+
+  .post-item-date {
+    color: #BBB;
+    flex: 1;
+    text-align: right;
+    text-transform: uppercase;
+    margin-right: 16px;
   }
 </style>
 
@@ -22,15 +48,18 @@
 </svelte:head>
 
 <div class="container">
-  <h1>Recent posts</h1>
-
-  <ul>
-    {#each posts as post}
-      <!-- we're using the non-standard `rel=prefetch` attribute to
-          tell Sapper to load the data for the page as soon as
-          the user hovers over the link or taps it, instead of
-          waiting for the 'click' event -->
-      <li><a rel='prefetch' href='blog/{post.slug}'>{post.title}</a></li>
-    {/each}
-  </ul>
+  <h1>Blog</h1>
+  {#each posts as post}
+    <div class="post-item">
+      <h2>
+        <a rel='prefetch' href='blog/{post.slug}'>{post.title}</a>
+      </h2>
+      <p>You know what? It is beets. I've crashed into a beet truck. Hey, you know how I'm, like, always trying to save the planet? Here's my chance. Jaguar shark! So tell me - does it really exist?</p>
+      <div class="post-item-footer">
+        <a rel='prefetch' href='blog/{post.slug}'>READ MORE</a>
+        <span class="post-item-date">March 12, 2019</span>
+        <!-- <span>Life</span> -->
+      </div>
+    </div>
+  {/each}
 </div>

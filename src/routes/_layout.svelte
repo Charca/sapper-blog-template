@@ -31,6 +31,10 @@
     width: 100%;
     padding: 1em 2em;
   }
+
+  footer p {
+    font-size: 1em;
+  }
 </style>
 
 <div class="layout">

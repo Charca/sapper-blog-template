@@ -18,32 +18,28 @@
 </script>
 
 <style>
-	/*
-		By default, CSS is locally scoped to the component,
-		and any unused styles are dead-code-eliminated.
-		In this page, Svelte can't know which elements are
-		going to appear inside the {{{post.html}}} block,
-		so we have to use the :global(...) modifier to target
-		all elements inside .content
-	*/
-	.content :global(h2) {
-		font-size: 1.4em;
-		font-weight: 500;
+	header {
+		text-align: center;
+		margin: 0 0 3.5em 0;
 	}
 
-	.content :global(pre) {
-		box-shadow: inset 1px 1px 5px rgba(0,0,0,0.05);
-		padding: 0;
-		border-radius: 2px;
-		overflow-x: auto;
+	header h1 {
+		margin-bottom: 0.7em;
 	}
 
-	.content :global(ul) {
-		line-height: 1.5;
+	header p {
+		color: #BBB;
+		text-transform: uppercase;
+		font-family: Rubik, sans-serif;
+		font-weight: 600;
 	}
 
-	.content :global(li) {
-		margin: 0 0 0.5em 0;
+	header hr {
+		background-color: #BBB;
+		border: none;
+		height: 1px;
+		min-width: 100px;
+		width: 30%;
 	}
 </style>
 
@@ -53,9 +49,13 @@
 
 
 <div class="container">
-	<h1>{post.title}</h1>
+	<header>
+		<p>March 12, 2019 - 2 min read</p>
+		<h1>{post.title}</h1>
+		<hr />
+	</header>
 
-	<div class='content'>
+	<article class='content'>
 		{@html post.html}
-	</div>
+	</article>
 </div>

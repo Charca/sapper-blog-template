@@ -11,7 +11,7 @@
     margin: 0 auto;
     max-width: 1400px;
     width: 100%;
-    padding: 1em 2em;
+    padding: 1.5em 2em;
   }
 </style>
 
