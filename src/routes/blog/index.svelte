@@ -35,7 +35,7 @@
   }
 
   .post-item-date {
-    color: #BBB;
+    color: #AAA;
     flex: 1;
     text-align: right;
     text-transform: uppercase;
@@ -57,7 +57,7 @@
       <p>You know what? It is beets. I've crashed into a beet truck. Hey, you know how I'm, like, always trying to save the planet? Here's my chance. Jaguar shark! So tell me - does it really exist?</p>
       <div class="post-item-footer">
         <a rel='prefetch' href='blog/{post.slug}'>READ MORE</a>
-        <span class="post-item-date">March 12, 2019</span>
+        <span class="post-item-date">{post.printDate}</span>
         <!-- <span>Life</span> -->
       </div>
     </div>

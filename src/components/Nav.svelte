@@ -21,6 +21,10 @@
     margin-left: 20px;
   }
 
+  a:not(.selected) {
+    opacity: 0.7;
+  }
+
   a::before {
     content: '';
     position: absolute;
@@ -29,7 +33,7 @@
     bottom: 0;
     width: 100%;
     height: 2px;
-    background: #BBB;
+    background: #AAA;
     transform: scaleX(0);
   }
 

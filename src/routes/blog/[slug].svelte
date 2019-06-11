@@ -28,14 +28,14 @@
 	}
 
 	header p {
-		color: #BBB;
+		color: #AAA;
 		text-transform: uppercase;
 		font-family: Rubik, sans-serif;
 		font-weight: 600;
 	}
 
 	header hr {
-		background-color: #BBB;
+		background-color: #AAA;
 		border: none;
 		height: 1px;
 		min-width: 100px;
@@ -50,7 +50,7 @@
 
 <div class="container">
 	<header>
-		<p>March 12, 2019 - 2 min read</p>
+		<p>{post.printDate} - {post.printReadingTime}</p>
 		<h1>{post.title}</h1>
 		<hr />
 	</header>

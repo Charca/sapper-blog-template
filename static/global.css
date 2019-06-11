@@ -70,11 +70,14 @@ code {
 	-moz-osx-font-smoothing: grayscale; /* Fixes font bold issue in Firefox version 25+ on Mac */
 }
 
-.hljs {
-	font-size: 1em;
-	padding: 1em!important;
-	background: #272822!important;
-	text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+pre {
+	border-radius: 8px!important;
+	margin: 1em 0;
+	/* margin: 1em calc(50% - 50vw)!important; */
+}
+
+pre code {
+	padding: 0;
 }
 
 .container {
