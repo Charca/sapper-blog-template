@@ -4,7 +4,8 @@
   }
 
   figure {
-    margin: 1em 0;
+    margin: 1em auto;
+    max-width: 900px;
   }
 
   figure img {

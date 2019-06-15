@@ -26,6 +26,7 @@
   }
 
   footer {
+    font-family: Rubik, sans-serif;
     margin: 0 auto;
     max-width: 1400px;
     width: 100%;
@@ -45,6 +46,8 @@
   </main>
 
   <footer>
-    <p>&copy; {new Date().getFullYear()} Your Blog. Made with 🍻 by <a href="https://www.twitter.com/Charca" target="_blank">Maxi Ferreira</a>.</p>
+    <p>&copy; {new Date().getFullYear()} Your Blog.
+    Powered by <a href="https://sapper.svelte.dev" target="_blank">Sapper</a>.
+    Template by <a href="https://www.twitter.com/Charca" target="_blank">Maxi Ferreira</a>.</p>
   </footer>
 </div>

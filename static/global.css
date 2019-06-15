@@ -28,29 +28,60 @@ h2 {
 	font-size: 1.8em;
 }
 
+h3 {
+  font-size: 1.5em;
+}
+
+h4 {
+  font-size: 1.4em;
+}
+
+h5 {
+  font-size: 1.3em;
+}
+
+h6 {
+  font-size: 1.2em;
+}
+
 p, ul, ol {
-	font-size: 1.2em;
+	font-size: 1.3rem;
 	line-height: 1.75em;
 	margin: 1.2em 0;
 }
 
+ol, ul {
+  padding-left: 2rem;
+  -webkit-padding-start: 5%;
+  -webkit-padding-end: 5%;
+}
+
 li {
-	margin: 0 0 1em 0;
+  margin: 1rem 0;
+}
+
+li p {
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 a {
 	color: inherit;
+	transition: color linear .15s;
 }
 
-p a, h2 a {
+a:hover {
+	color: #fd6378;
+}
+
+p a {
 	text-decoration: none;
 	box-shadow: inset 0 -0.12em 0 #fd6378;
 	-webkit-transition: box-shadow .2s ease-in-out, color .2s ease-in-out;
 	transition: box-shadow .2s ease-in-out, color .2s ease-in-out;
 }
 
-p a:hover,
-h2 a:hover {
+p a:hover {
 	box-shadow: inset 0 -1.5em 0 #fd6378;
 	color: #FFF;
 }
@@ -66,18 +97,62 @@ code {
 	background-color: #f0f0f0;
 	padding: 0.2em 0.4em;
 	border-radius: 2px;
-	-webkit-font-smoothing: antialiased; /* This needs to be set or some font faced fonts look bold on Mac in Chrome/Webkit based browsers. */
-	-moz-osx-font-smoothing: grayscale; /* Fixes font bold issue in Firefox version 25+ on Mac */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 pre {
 	border-radius: 8px!important;
-	margin: 1em 0;
-	/* margin: 1em calc(50% - 50vw)!important; */
+	margin: 1.2em 0!important;
 }
 
 pre code {
 	padding: 0;
+}
+
+blockquote {
+  border-left: 4px solid #cccccc;
+  font-size: 1.4em;
+  font-style: italic;
+  margin: 2rem 0;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+blockquote p {
+  padding-bottom: 6px;
+}
+
+blockquote footer {
+  font-size: 1.1rem;
+  text-align: right;
+}
+
+figure {
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  margin: 0 0 3em 0;
+}
+
+table {
+  border-collapse: collapse;
+  font-family: Rubik, sans-serif;
+  font-size: 1.125em;
+  margin: 2em 0;
+}
+
+th {
+  border-bottom: 2px solid #cccccc;
+  padding: 0.4em 0.8em;
+}
+
+td {
+  padding: 0.4em 0.8em;
 }
 
 .container {
@@ -86,9 +161,18 @@ pre code {
 	width: 100%;
 }
 
+.content h1 {
+  font-size: 3em;
+  margin: 1em 0;
+}
+
 @media (max-width: 1020px) {
 	h1 {
 		font-size: 3em;
+	}
+
+	.content h1 {
+		font-size: 2.4em;
 	}
 }
 

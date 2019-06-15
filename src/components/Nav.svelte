@@ -14,6 +14,7 @@
   }
 
   a {
+    color: inherit;
     text-decoration: none;
     padding: 10px 5px;
     display: block;

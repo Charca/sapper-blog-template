@@ -12,12 +12,28 @@ require('prismjs/components/prism-jsx.min')
 const cwd = process.cwd()
 const POSTS_DIR = path.join(cwd, 'src/routes/blog/posts/')
 const renderer = new marked.Renderer()
+const linkRenderer = renderer.link;
+renderer.link = (href, title, text) => {
+    const html = linkRenderer.call(renderer, href, title, text)
+
+    if (href.indexOf('/') === 0) {
+      // Do not open internal links on new tab
+      return html
+    } else if (href.indexOf('#') === 0) {
+      // Handle hash links to internal elements
+      const html = linkRenderer.call(renderer, 'javascript:;', title, text)
+      return html.replace(/^<a /, `<a onclick="document.location.hash='${href.substr(1)}';" `)
+    }
+
+    return html.replace(/^<a /, '<a target="_blank" rel="nofollow" ')
+}
 
 renderer.code = (code, language) => {
   const parser = prism.languages[language] || prism.languages.html
   const highlighted = prism.highlight(code, parser, language)
   return `<pre class="language-${language}"><code class="language-${language}">${highlighted}</code></pre>`
 }
+
 
 marked.setOptions({ renderer })
 

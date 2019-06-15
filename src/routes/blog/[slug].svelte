@@ -20,7 +20,7 @@
 <style>
 	header {
 		text-align: center;
-		margin: 0 0 3.5em 0;
+		margin: 0 0 1.6em 0;
 	}
 
 	header h1 {
@@ -48,14 +48,13 @@
 </svelte:head>
 
 
+<header>
+	<p>{post.printDate} ~ {post.printReadingTime}</p>
+	<h1>{post.title}</h1>
+	<hr />
+</header>
 <div class="container">
-	<header>
-		<p>{post.printDate} - {post.printReadingTime}</p>
-		<h1>{post.title}</h1>
-		<hr />
-	</header>
-
-	<article class='content'>
+	<article class="content">
 		{@html post.html}
 	</article>
 </div>
