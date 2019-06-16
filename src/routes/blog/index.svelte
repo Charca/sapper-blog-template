@@ -17,29 +17,15 @@
     font-weight: 700;
   }
 
-  .post-item {
-    margin-bottom: 60px;
-  }
-
-  .post-item-footer {
-    display: flex;
-  }
-
-  .post-item-footer a {
-    color: #fd6378;
-    text-decoration: none;
-  }
-
-  .post-item-footer a:hover {
-    text-decoration: underline;
-  }
-
   .post-item-date {
     color: #AAA;
-    flex: 1;
-    text-align: right;
+    text-align: left;
     text-transform: uppercase;
     margin-right: 16px;
+  }
+
+  hr {
+    margin: 60px auto;
   }
 </style>
 
@@ -50,16 +36,17 @@
 
 <div class="container">
   <h1>Blog</h1>
-  {#each posts as post}
+  {#each posts as post, index}
+    {#if index}
+      <hr />
+    {/if}
     <div class="post-item">
       <h2>
         <a rel='prefetch' href='blog/{post.slug}'>{post.title}</a>
       </h2>
-      <p>You know what? It is beets. I've crashed into a beet truck. Hey, you know how I'm, like, always trying to save the planet? Here's my chance. Jaguar shark! So tell me - does it really exist?</p>
+      <p>{post.excerpt}</p>
       <div class="post-item-footer">
-        <a rel='prefetch' href='blog/{post.slug}'>READ MORE</a>
-        <span class="post-item-date">{post.printDate}</span>
-        <!-- <span>Life</span> -->
+        <span class="post-item-date">— {post.printDate}</span>
       </div>
     </div>
   {/each}

@@ -10,8 +10,8 @@
     display: flex;
     margin: 0 auto;
     max-width: 1400px;
+    padding: 2em;
     width: 100%;
-    padding: 1.5em 2em;
   }
 </style>
 

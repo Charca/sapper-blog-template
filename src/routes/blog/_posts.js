@@ -11,6 +11,7 @@ require('prismjs/components/prism-jsx.min')
 
 const cwd = process.cwd()
 const POSTS_DIR = path.join(cwd, 'src/routes/blog/posts/')
+const EXCERPT_SEPARATOR = '<!-- more -->'
 const renderer = new marked.Renderer()
 const linkRenderer = renderer.link;
 renderer.link = (href, title, text) => {
@@ -34,16 +35,24 @@ renderer.code = (code, language) => {
   return `<pre class="language-${language}"><code class="language-${language}">${highlighted}</code></pre>`
 }
 
-
 marked.setOptions({ renderer })
 
 const posts = fs.readdirSync(POSTS_DIR)
   .filter(fileName => /\.md$/.test(fileName))
   .map(fileName => {
     const fileMd = fs.readFileSync(path.join(POSTS_DIR, fileName), 'utf8')
-    const { data, content } = matter(fileMd)
+    const { data, content: rawContent } = matter(fileMd)
     const { title, date } = data
     const slug = fileName.split('.')[0]
+    let content = rawContent
+    let excerpt = ''
+
+    if (rawContent.indexOf(EXCERPT_SEPARATOR) !== -1) {
+      const splittedContent = rawContent.split(EXCERPT_SEPARATOR)
+      excerpt = splittedContent[0]
+      content = splittedContent[1]
+    }
+
     const html = marked(content)
     const readingStats = readingTime(content)
     const printReadingTime = readingStats.text
@@ -54,6 +63,7 @@ const posts = fs.readdirSync(POSTS_DIR)
       slug,
       html,
       date,
+      excerpt,
       printDate,
       printReadingTime,
     }
