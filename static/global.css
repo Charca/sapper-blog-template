@@ -5,7 +5,7 @@
 body {
   margin: 0;
   font-family: Merriweather, serif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
   color: #36393b;
 }
@@ -183,8 +183,13 @@ td {
   }
 }
 
-@media (min-width: 400px) {
+@media (max-width: 480px) {
   body {
-    font-size: 16px;
+    font-size: 14px;
+  }
+
+  p, ul, ol {
+    font-size: 1.2rem;
+    margin: 1em 0;
   }
 }

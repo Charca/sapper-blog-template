@@ -26,15 +26,14 @@
   }
 
   footer {
-    font-family: Rubik, sans-serif;
-    margin: 0 auto;
-    max-width: 1400px;
-    width: 100%;
-    padding: 1em 2em;
-  }
-
-  footer p {
+    color: #AAA;
     font-size: 1em;
+    font-family: Rubik, sans-serif;
+    margin: 1em auto;
+    max-width: 1400px;
+    padding: 1em 2em;
+    text-align: center;
+    width: 100%;
   }
 </style>
 
@@ -46,8 +45,10 @@
   </main>
 
   <footer>
-    <p>&copy; {new Date().getFullYear()} Your Blog.
-    Powered by <a href="https://sapper.svelte.dev" target="_blank">Sapper</a>.
-    Template by <a href="https://www.twitter.com/Charca" target="_blank">Maxi Ferreira</a>.</p>
+    <span>
+      &copy; {new Date().getFullYear()} Your Blog.
+      Powered by <a href="https://sapper.svelte.dev" target="_blank">Sapper</a>.
+      Template by <a href="https://www.twitter.com/Charca" target="_blank">Maxi Ferreira</a>.
+    </span>
   </footer>
 </div>

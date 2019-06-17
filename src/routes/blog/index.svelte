@@ -31,7 +31,6 @@
 
 <svelte:head>
   <title>Blog</title>
-  <base href="http://localhost:3000/blog/">
 </svelte:head>
 
 <div class="container">
