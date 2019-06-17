@@ -14,7 +14,8 @@
 </script>
 
 <script>
-  export let post;
+  import Bio from '../../components/Bio.svelte'
+  export let post
 </script>
 
 <style>
@@ -53,4 +54,6 @@
   <article class="content">
     {@html post.html}
   </article>
+  <hr />
+  <Bio />
 </div>
