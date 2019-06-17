@@ -27,6 +27,11 @@
     text-align: center;
   }
 
+  figcaption {
+    font-size: .8em;
+    font-style: italic;
+  }
+
   img {
     width: 100%;
     max-width: 400px;
@@ -67,5 +72,6 @@
 
   <figure>
     <img alt='Person typing on laptop' src='undraw-illustration.svg'>
+    <figcaption>Illustration thanks to <a href="https://undraw.co" target="_blank">Undraw</a></figcaption>
   </figure>
 </div>
