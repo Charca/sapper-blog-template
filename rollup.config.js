@@ -19,7 +19,7 @@ const markdown = () => ({
 		const data = marked(md);
 		return {
 			code: `export default ${JSON.stringify(data.toString())};`,
-            		map: { mappings: '' }
+			map: { mappings: '' }
 		};
 	}
 });
@@ -62,7 +62,7 @@ export default {
 				module: true
 			})
 		],
-        	preserveEntrySignatures: false,
+		preserveEntrySignatures: false,
 		onwarn,
 	},
 
