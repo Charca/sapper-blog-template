@@ -1,8 +1,8 @@
-import resolve from 'rollup-plugin-node-resolve';
-import replace from 'rollup-plugin-replace';
-import commonjs from 'rollup-plugin-commonjs';
+import resolve from '@rollup/plugin-node-resolve';
+import replace from '@rollup/plugin-replace';
+import commonjs from '@rollup/plugin-commonjs';
 import svelte from 'rollup-plugin-svelte';
-import babel from 'rollup-plugin-babel';
+import babel from '@rollup/plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import marked from 'marked';
@@ -18,7 +18,8 @@ const markdown = () => ({
 		if (!/\.md$/.test(id)) return null;
 		const data = marked(md);
 		return {
-			code: `export default ${JSON.stringify(data.toString())};`
+			code: `export default ${JSON.stringify(data.toString())};`,
+            map: { mappings: '' }
 		};
 	}
 });
@@ -61,7 +62,7 @@ export default {
 				module: true
 			})
 		],
-
+        preserveEntrySignatures: false,
 		onwarn,
 	},
 
