@@ -2,7 +2,7 @@
 
 A starter template for building markdown-powered blogs with [Sapper](https://github.com/sveltejs/sapper) and [Svelte](https://github.com/sveltejs/svelte).
 
-### 👉 [Demo](https://sapper-blog-template.netlify.com/)
+### 👉 [Demo](https://blogmops.vercel.app/)
 
 ## ✨ Getting started
 
