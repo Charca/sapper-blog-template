@@ -39,7 +39,7 @@ This is where your markdown posts live in. All `.md` files in this directory are
 
 ## 🚀 Deploy
 
-[Fork thus repo ans select it to deploy on Vercel](https://www.vercel.com/)
+[Fork this repo ans select it to deploy on Vercel](https://www.vercel.com/)
 
 
 ## 🐛 Bugs and feedback
