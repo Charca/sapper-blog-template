@@ -1,14 +1,24 @@
 {
 	"background_color": "#ffffff",
 	"theme_color": "#333333",
-	"name": "TODO",
-	"short_name": "TODO",
+	"name": "blogmops",
+	"short_name": "blogmops",
 	"display": "minimal-ui",
 	"start_url": "/",
 	"icons": [
 		{
-			"src": "logo-192.png",
-			"sizes": "192x192",
+			"src": "logo-16.png",
+			"sizes": "16x16",
+			"type": "image/png"
+		},
+		{
+			"src": "logo-32.png",
+			"sizes": "32x32",
+			"type": "image/png"
+		},
+		{
+			"src": "logo-152.png",
+			"sizes": "152x152",
 			"type": "image/png"
 		},
 		{

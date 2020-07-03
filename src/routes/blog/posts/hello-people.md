@@ -3,12 +3,14 @@ title: Hello people 👋
 date: "2020-07-03T12:39:25.958Z"
 ---
 
-# Hello people
+## Time to get things going
 
-I was so tired today! Look how I don't get out of bed.
+So today i started my brand new blog in the.. so called "internet".
 
-![alt text](/blog/hello-people/snooze002.jpg "Snoozing")
+At the end I was so tired, look!
 
-But I did it... somehow 😅
+![alt text](/images/blog/hello-people/snooze002.webp "Snoozing")
 
-![alt text](/blog/hello-people/snooze001.jpg "Wake up")
+But I did it... somehow! 😅
+
+![alt text](/images/blog/hello-people/snooze001.webp "Wake up")
