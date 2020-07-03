@@ -1,7 +1,3 @@
-<script>
-  import Image from "svelte-image";
-</script>
-
 <style>
   .home-container {
     align-items: center;
@@ -76,7 +72,8 @@
 
   <figure>
     <div class="profile-image">
-      <Image src="images/blogmops.webp" alt="blogmops selfie" />
+      <img alt="blogmops selfie"
+        srcset="images/blogmops.webp 375w, images/blogmops.webp 768w, images/blogmops.webp 1024w">
     </div>
 
     <figcaption>

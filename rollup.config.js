@@ -1,10 +1,7 @@
 import resolve from 'rollup-plugin-node-resolve';
-import copy from 'rollup-plugin-copy'
 import replace from 'rollup-plugin-replace';
 import commonjs from 'rollup-plugin-commonjs';
 import svelte from 'rollup-plugin-svelte';
-import preprocess from 'svelte-preprocess';
-import image from "svelte-image";
 import babel from 'rollup-plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
@@ -40,15 +37,8 @@ export default {
 			svelte({
 				dev,
 				hydratable: true,
-				preprocess: preprocess({
-				...image(),
-				}),
 				emitCss: true,
 			}),
-
-			copy({ targets: [
-				{ src: 'src/images', dest: 'static' },
-			] }),
 
 			resolve(),
 
@@ -90,9 +80,6 @@ export default {
 			svelte({
 				generate: 'ssr',
 				dev,
-				preprocess: preprocess({
-				...image(),
-				}),
 			}),
 			resolve(),
 			commonjs(),
