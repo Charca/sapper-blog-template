@@ -33,12 +33,20 @@
   }
 
   .profile-image {
-    max-height: 370px;
-    max-width: 370px;
+    max-height: 210px;
+    max-width: 210px;
     width: 100%;
     overflow: hidden;
-    display: inline-block;
+    display: block;
+    margin: 0 0 35px 30px;
     border-radius: 50%;
+  }
+
+  @media (min-width: 1024px) {
+    .profile-image {
+      max-height: 380px;
+      max-width: 380px;
+    }
   }
 
   @media (max-width: 1020px) {

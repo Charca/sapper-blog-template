@@ -2,14 +2,22 @@
   div {
     align-items: center;
     display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+  }
+
+  @media (min-width: 1024px) {
+    div {
+      flex-direction: row;
+    }
   }
 
   .profile-image {
-    max-height: 130px;
-    max-width: 130px;
+    max-height: 58px;
+    max-width: 58px;
     width: 100%;
     overflow: hidden;
-    display: inline-block;
+    display: block;
     border-radius: 50%;
     margin-right: 20px;
   }
