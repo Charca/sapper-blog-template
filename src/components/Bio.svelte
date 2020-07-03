@@ -5,10 +5,12 @@
   }
 
   .profile-image {
-    border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    max-height: 130px;
+    max-width: 130px;
+    width: 100%;
+    overflow: hidden;
     display: inline-block;
+    border-radius: 50%;
     margin-right: 20px;
   }
 

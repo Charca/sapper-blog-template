@@ -33,8 +33,9 @@
   }
 
   .profile-image {
-    height: 300px;
-    width: 300px;
+    max-height: 370px;
+    max-width: 370px;
+    width: 100%;
     overflow: hidden;
     display: inline-block;
     border-radius: 50%;

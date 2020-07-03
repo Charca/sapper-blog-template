@@ -37,7 +37,7 @@ export default {
 			svelte({
 				dev,
 				hydratable: true,
-				emitCss: true,
+				emitCss: true
 			}),
 
 			resolve(),
@@ -66,7 +66,7 @@ export default {
 			})
 		],
 
-		onwarn,
+		onwarn
 	},
 
 	server: {
@@ -77,19 +77,23 @@ export default {
 				'process.browser': false,
 				'process.env.NODE_ENV': JSON.stringify(mode)
 			}),
+
 			svelte({
 				generate: 'ssr',
-				dev,
+				dev
 			}),
+
 			resolve(),
+
 			commonjs(),
+
 			markdown()
 		],
 		external: Object.keys(pkg.dependencies).concat(
 			require('module').builtinModules || Object.keys(process.binding('natives'))
 		),
 
-		onwarn,
+		onwarn
 	},
 
 	serviceworker: {
@@ -97,14 +101,16 @@ export default {
 		output: config.serviceworker.output(),
 		plugins: [
 			resolve(),
+
 			replace({
 				'process.browser': true,
 				'process.env.NODE_ENV': JSON.stringify(mode)
 			}),
+
 			commonjs(),
 			!dev && terser()
 		],
 
-		onwarn,
+		onwarn
 	}
 };
