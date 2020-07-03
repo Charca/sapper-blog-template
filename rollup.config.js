@@ -46,6 +46,10 @@ export default {
 				emitCss: true,
 			}),
 
+			copy({ targets: [
+				{ src: 'src/images', dest: 'static' },
+			] }),
+
 			resolve(),
 
 			commonjs(),
@@ -90,9 +94,6 @@ export default {
 				...image(),
 				}),
 			}),
-			copy({ targets: [
-				{ src: 'src/images', dest: 'static' },
-			] }),
 			resolve(),
 			commonjs(),
 			markdown()

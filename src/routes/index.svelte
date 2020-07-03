@@ -76,14 +76,11 @@
 
   <figure>
     <div class="profile-image">
-      <Image
-        src="images/blogmops.webp"
-        alt="blogmops selfie" />
-      <!--<img alt="blogmops selfie" sizes="(max-width: 1000px) 100vw, 1000px" srcset="images/400-blogmops.jpg 375w, images/800-blogmops.jpg 768w, images/1200-blogmops.jpg 1024w">-->
+      <Image src="images/blogmops.webp" alt="blogmops selfie" />
     </div>
 
     <figcaption>
-      That's me; the <a href="/">blogmops</a>
+      That's me: the <a href="/">blogmops</a>
     </figcaption>
   </figure>
 </div>
