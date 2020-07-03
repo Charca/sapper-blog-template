@@ -1,3 +1,7 @@
+<script>
+  import Image from "svelte-image";
+</script>
+
 <style>
   .home-container {
     align-items: center;
@@ -32,18 +36,17 @@
     font-style: italic;
   }
 
-  img {
-    width: 100%;
-    max-width: 400px;
+  .profile-image {
+    height: 300px;
+    width: 300px;
+    overflow: hidden;
+    display: inline-block;
+    border-radius: 50%;
   }
 
   @media (max-width: 1020px) {
     p {
       font-size: 1.2em;
-    }
-
-    img {
-      max-width: 300px;
     }
   }
 
@@ -61,17 +64,26 @@
 </style>
 
 <svelte:head>
-  <title>Sapper Blog Template</title>
+  <title>blogmops - a blog for a pug</title>
 </svelte:head>
 
 <div class="home-container">
   <div class="home-copy">
-    <h1>Welcome to your new Sapper Blog</h1>
-    <p>Check out the docs on <a href="https://www.github.com/Charca/sapper-blog-template" target="_blank">GitHub</a> to get started.</p>
+    <h1>Welcome to blogmops</h1>
+
+    <p>Check out my <a href="/blog">blog</a> posts.</p>
   </div>
 
   <figure>
-    <img alt='Person typing on laptop' src='undraw-illustration.svg'>
-    <figcaption>Illustration thanks to <a href="https://undraw.co" target="_blank">Undraw</a></figcaption>
+    <div class="profile-image">
+      <Image
+        src="images/blogmops.webp"
+        alt="blogmops selfie" />
+      <!--<img alt="blogmops selfie" sizes="(max-width: 1000px) 100vw, 1000px" srcset="images/400-blogmops.jpg 375w, images/800-blogmops.jpg 768w, images/1200-blogmops.jpg 1024w">-->
+    </div>
+
+    <figcaption>
+      That's me; the <a href="/">blogmops</a>
+    </figcaption>
   </figure>
 </div>

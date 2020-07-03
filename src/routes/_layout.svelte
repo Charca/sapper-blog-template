@@ -46,9 +46,9 @@
 
   <footer>
     <span>
-      &copy; {new Date().getFullYear()} Your Blog.
-      Powered by <a href="https://sapper.svelte.dev" target="_blank">Sapper</a>.
-      Template by <a href="https://www.twitter.com/Charca" target="_blank">Maxi Ferreira</a>.
+      &copy; {new Date().getFullYear()} blogmops.
+      Powered by <a href="https://sapper.svelte.dev" target="_blank" rel="nofollow">Sapper</a> and <a href="https://vercel.com/">Vercel</a>.
+      Template by <a href="https://www.twitter.com/Charca" target="_blank" rel="nofollow">Maxi Ferreira</a>.
     </span>
   </footer>
 </div>

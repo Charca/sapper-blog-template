@@ -1,7 +1,10 @@
 import resolve from 'rollup-plugin-node-resolve';
+import copy from 'rollup-plugin-copy'
 import replace from 'rollup-plugin-replace';
 import commonjs from 'rollup-plugin-commonjs';
 import svelte from 'rollup-plugin-svelte';
+import preprocess from 'svelte-preprocess';
+import image from "svelte-image";
 import babel from 'rollup-plugin-babel';
 import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
@@ -13,6 +16,7 @@ const dev = mode === 'development';
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
 const onwarn = (warning, onwarn) => (warning.code === 'CIRCULAR_DEPENDENCY' && warning.message.includes('/@sapper/')) || onwarn(warning);
+
 const markdown = () => ({
 	transform (md, id) {
 		if (!/\.md$/.test(id)) return null;
@@ -32,12 +36,18 @@ export default {
 				'process.browser': true,
 				'process.env.NODE_ENV': JSON.stringify(mode)
 			}),
+
 			svelte({
 				dev,
 				hydratable: true,
-				emitCss: true
+				preprocess: preprocess({
+				...image(),
+				}),
+				emitCss: true,
 			}),
+
 			resolve(),
+
 			commonjs(),
 
 			legacy && babel({
@@ -75,8 +85,14 @@ export default {
 			}),
 			svelte({
 				generate: 'ssr',
-				dev
+				dev,
+				preprocess: preprocess({
+				...image(),
+				}),
 			}),
+			copy({ targets: [
+				{ src: 'src/images', dest: 'static' },
+			] }),
 			resolve(),
 			commonjs(),
 			markdown()
