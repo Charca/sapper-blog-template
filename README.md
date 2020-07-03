@@ -8,7 +8,7 @@ A starter template for building markdown-powered blogs with [Sapper](https://git
 
 ```bash
 npx degit jsbase/blogmops blog
-cd my-blog
+cd blog
 npm install # or yarn!
 npm run dev
 ```
