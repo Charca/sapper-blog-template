@@ -2,12 +2,12 @@
 
 A starter template for building markdown-powered blogs with [Sapper](https://github.com/sveltejs/sapper) and [Svelte](https://github.com/sveltejs/svelte).
 
-### 👉 [Demo](https://blogmops.vercel.app/)
+### 👉 [Hompage](https://blogmops.vercel.app/)
 
 ## ✨ Getting started
 
 ```bash
-npx degit Charca/sapper-blog-template my-blog
+npx degit jsbase/blogmops blog
 cd my-blog
 npm install # or yarn!
 npm run dev
@@ -39,7 +39,7 @@ This is where your markdown posts live in. All `.md` files in this directory are
 
 ## 🚀 Deploy
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Charca/sapper-blog-template)
+[Fork thus repo ans select it to deploy on Vercel](https://www.vercel.com/)
 
 
 ## 🐛 Bugs and feedback
