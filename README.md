@@ -1,4 +1,6 @@
+![Website](https://img.shields.io/website?down_color=%23e60a33&down_message=offline&label=blogmops&up_color=%2315c11a&up_message=online&url=https%3A%2F%2Fimg.shields.io%2Fwebsite%2Fhttp%2Fblogmops.vercel.app.svg)
 ![cypress](https://github.com/jsbase/blogmops/workflows/cypress/badge.svg?branch=master)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/jsbase/blogmops?label=size)
 
 # 🧾 blogmops wiki
 
