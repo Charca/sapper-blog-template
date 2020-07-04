@@ -1,9 +1,12 @@
 .DS_Store
-/node_modules/
-/src/node_modules/@sapper/
-yarn-error.log
-/cypress/screenshots/
-/__sapper__/
 package-lock.json
+yarn-error.log
+/node_modules/
+/src/node_modules/
+/cypress/screenshots/
+/cypress/videos/
+/cypress/fixtures/
+/__sapper__/
 .history
 .vercel
+.env
