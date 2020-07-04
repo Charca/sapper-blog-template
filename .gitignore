@@ -1,5 +1,9 @@
 .DS_Store
-node_modules
+/node_modules/
+/src/node_modules/@sapper/
 yarn-error.log
 /cypress/screenshots/
 /__sapper__/
+package-lock.json
+.history
+.vercel
