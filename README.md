@@ -6,12 +6,13 @@ Simple markdown (*.md) powered blog posts with [Sapper](https://github.com/svelt
 
 ### 🧷 [Hompage](https://blogmops.vercel.app/)
 
+
 ## ✨ Getting started
 
 To run cypress locally follow the [setup instructions](https://cypress.io)!
 Then open terminal run:
 
-```bash
+```shell
 npx degit jsbase/blogmops blog
 cd blog && touch .env
 echo "PORT=3000" >> .env
@@ -19,8 +20,8 @@ npm i && npm run dev
 ```
 
 Open up [localhost:3000](http://localhost:3000) and start clicking around.
-
 Consult [sapper.svelte.dev](https://sapper.svelte.dev) for help getting started.
+
 
 ## 🏗 Structure
 
@@ -41,6 +42,7 @@ This is where your markdown posts live in. All `.md` files in this directory are
 - The markdown file name becomes the post slug. For example `hello-world.md` becomes `http://localhost:3000/blog/hello-world`.
 - Everything between the start of the post and the `<!-- more -->` tag becomes the article's "excerpt".
 - Frontmatter properties supported are `title` and `date`.
+
 
 ## 🚀 Deploy
 
