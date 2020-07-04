@@ -10,12 +10,16 @@
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build --legacy",
-    "export": "sapper export --legacy",
     "start": "node __sapper__/build",
+    "export": "sapper export --legacy",
     "static": "npx serve __sapper__/export",
-    "cypress:open": "cypress open",
-    "cypress:run": "cypress run",
-    "test": "run-p --race export cypress:run"
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:build:dev": "run-p -r build start",
+    "cy:build:prod": "run-p -r export static",
+    "cy:test:prod": "run-p -r cy:build:prod cy:run",
+    "cy:test:local": "run-p -r cy:build:dev cy:run",
+    
   },
   "dependencies": {
     "compression": "^1.7.4",
