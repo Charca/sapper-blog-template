@@ -1,4 +1,4 @@
-![test](https://github.com/jsbase/blogmops/workflows/test/badge.svg?branch=master)
+![cypress](https://github.com/jsbase/blogmops/workflows/cypress/badge.svg?branch=master)
 
 # sapper-blog-template
 
