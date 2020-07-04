@@ -39,7 +39,7 @@ This is where your markdown posts live in. All `.md` files in this directory are
 
 ## 🚀 Deploy
 
-[Fork this repo ans select it to deploy on Vercel](https://www.vercel.com/)
+[![Deploy to Vercel](/button)](/import/project?template=https://github.com/jsbase/blogmops/master)
 
 
 ## 🐛 Bugs and feedback
