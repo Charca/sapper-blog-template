@@ -6,21 +6,25 @@ jobs:
 
   cypress-run:
     runs-on: ${{ matrix.os }}
-    
+
     strategy:
       matrix:
-        node-version: [ 14.5.x ]
+        node-version: [ 14.5.0 ]
         os: [ ubuntu-latest, windows-latest, macOS-latest ]
 
-    name: Cypress run
-    steps:
-    - name: Running on ${{ matrix.os }} with node@v${{ matrix.node }}
-      uses: cypress-io/github-action@v2
-      with:
-        record: true
-        tag: node-${{ matrix.node }}
-      env:
-        CI: true
-        PORT: 5000
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+	  name: Cypress run
+	  steps:
+        - run: git config --global core.autocrlf false
+        - uses: actions/checkout@v2
+        - uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+          - run: node -v
+          - run: npm i
+          - run: npm run test
+          env:
+            CI: true
+            PORT: 5000
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            # CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
