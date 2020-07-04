@@ -13,9 +13,9 @@
     "export": "sapper export --legacy",
     "start": "node __sapper__/build",
     "static": "npx serve __sapper__/export",
-    "cy:run": "cypress run",
-    "cy:open": "cypress open",
-    "test": "run-p --race dev cy:run"
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "test": "run-p --race export cypress:run --port process.env.PORT"
   },
   "dependencies": {
     "compression": "^1.7.1",
