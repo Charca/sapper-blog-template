@@ -1,22 +1,26 @@
 name: cypress
 
-on: [push, pull_request]
+on: [ push, pull_request ]
+
 jobs:
-  check:
+
+  cypress-run:
     runs-on: ${{ matrix.os }}
+    
     strategy:
       matrix:
-        node-version: [14.5.0]
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+        node-version: [ 14.5.x ]
+        os: [ ubuntu-latest, windows-latest, macOS-latest ]
+
+    name: Cypress run
     steps:
-    - run: git config --global core.autocrlf false
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
+    - name: Running on ${{ matrix.os }} with node@v${{ matrix.node }}
+      uses: cypress-io/github-action@v2
       with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm cache clean --force
-    - run: npm install --save-exact
-    - run: npm run test
+        record: true
+        tag: node-${{ matrix.node }}
       env:
         CI: true
-
+        PORT: 5000
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
