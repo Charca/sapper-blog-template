@@ -1,0 +1,20 @@
+name: CI
+on: [push, pull_request]
+jobs:
+  check-env-build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: [10, 12, 14]
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+    steps:
+    - run: git config --global core.autocrlf false
+    - uses: actions/checkout@v2
+    - uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: npm ci
+    - run: npm run build
+    - run: npm run test
+      env:
+        CI: true
