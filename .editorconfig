@@ -1,0 +1,22 @@
+# EditorConfig: http://EditorConfig.org
+# EditorConfig Properties: https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties
+
+root = true
+
+[*]
+charset = utf-8
+end_of_line = lf
+max_line_length = 120
+indent_style = tab
+indent_size = 4
+trim_trailing_whitespace = true
+insert_final_newline = true
+quote_type = single
+
+[*.json]
+indent_size = 2
+indent_style = space
+quote_type = double
+
+[*.md]
+trim_trailing_whitespace = false
