@@ -12,7 +12,7 @@ const CI = NODE_ENV === 'CI'
 
 polka()
     .use(CI ? volleyball.custom({ debug: true, port: PORT }) : volleyball )
-    .usw(helmet())
+    .use(helmet())
     .use(
 	compression({ threshold: 0 }),
 	sirv('static', { dev }),
