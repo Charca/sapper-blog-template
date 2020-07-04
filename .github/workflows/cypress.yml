@@ -6,7 +6,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [14]
+        node-version: [14.5.0]
         os: [ubuntu-latest, windows-latest, macOS-latest]
     steps:
     - run: git config --global core.autocrlf false
@@ -14,8 +14,9 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm i
-    - run: npm cit
+    - run: npm cache clean --force
+    - run: npm install --save-exact
+    - run: npm run test
       env:
         CI: true
 
