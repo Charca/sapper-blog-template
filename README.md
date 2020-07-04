@@ -17,10 +17,10 @@ To run cypress locally follow the [setup instructions](https://cypress.io)!
 Then open terminal run:
 
 ```shell
-npx degit jsbase/blogmops blog
-cd blog && touch .env
-echo "PORT=3000" >> .env
-npm i && npm run dev
+$ › npx degit jsbase/blogmops blog
+$ › cd blog && touch .env
+$ › echo "PORT=3000" >> .env
+$ › npm i && npm run dev
 ```
 
 Open up [localhost:3000](http://localhost:3000) and start clicking around.
