@@ -1,0 +1,11 @@
+package.json
+package-lock.json
+.vscode
+.archive
+.history
+__sapper__
+cypress/videos
+cypress/screenshots
+dist
+node_modules
+static
