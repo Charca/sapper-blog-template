@@ -9,3 +9,4 @@ yarn-error.log
 /__sapper__/
 .history
 .vercel
+.env
