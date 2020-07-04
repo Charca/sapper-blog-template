@@ -1,6 +1,9 @@
 backend:
-  - any: ['./**/*.js', 'src/server.js'],
+  - any: ['./**/*.js', 'src/server.js']
   - all: ['!src/**/*.js']
+
+documentation
+  - any: ['./**/*.md']
 
 test:
   - cypress/**/*.spec.js

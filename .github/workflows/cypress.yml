@@ -1,22 +1,74 @@
 name: cypress
 
-on: [push, pull_request]
+on: [ push, pull_request ]
 
 jobs:
   cypress-run:
     runs-on: ${{ matrix.os }}
+
     strategy:
       matrix:
-        node-version: [ 14.5.x ]
+        node-version: [ 14.x.x ]
         os: [ ubuntu-latest, windows-latest, macOS-latest ]
-
+    
     steps:
-    - run: git config --global core.autocrlf false
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - run: npm run test
-      env:
-        CI: true
+      - run: git config --global core.autocrlf false
+      - uses: actions/checkout@v2
+      - uses: actions/cache@v2
+        with:
+          path: |
+            ~/cache
+            !~/cache/exclude
+            **/node_modules
+            **/.archive
+          key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+
+      - name: install node v${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm i
+
+      - name: Run nodeJS v.${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          working-directory: ./
+          build: npm run build
+          start: npm run start
+          wait-on: 'http://localhost:${{ process.env.PORT }}'
+        env:
+          CI: true
+          PORT: 5000
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
+      - name: setup-chromedriver
+        uses: nanasess/setup-chromedriver@v1.0.1
+        with:
+          working-directory: ./
+          browser: chrome
+
+      - name: upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+
+      - run: npx image-size cypress/screenshots/**/*.png
+        working-directory: ./
+
+      - name: upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: screenshots-chrome
+          path: cypress/screenshots/chrome
+
+      - name: upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: videos-chrome
+          path: cypress/videos/chrome
+      - run: npx image-size cypress/screenshots/**/*.png
+        working-directory: ./
+      - run: ffprobe cypress/videos/*.mp4 || true
+      - run: mplayer -really-quiet -ao null -vo null -identify -frames 0 cypress/videos/*.mp4 || true

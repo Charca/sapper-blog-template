@@ -1,9 +1,10 @@
-name: "labeler"
+name: labeler
+
 on:
-- pull_request
+  - pull_request
 
 jobs:
-  triage:
+  labelize:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/labeler@v2

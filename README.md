@@ -1,18 +1,21 @@
 ![cypress](https://github.com/jsbase/blogmops/workflows/cypress/badge.svg?branch=master)
 
-# sapper-blog-template
+# 🧾 blogmops wiki
 
-A starter template for building markdown-powered blogs with [Sapper](https://github.com/sveltejs/sapper) and [Svelte](https://github.com/sveltejs/svelte).
+Simple markdown (*.md) powered blog posts with [Sapper](https://github.com/sveltejs/sapper) and [Svelte](https://github.com/sveltejs/svelte).
 
-### 👉 [Hompage](https://blogmops.vercel.app/)
+### 🧷 [Hompage](https://blogmops.vercel.app/)
 
 ## ✨ Getting started
 
+To run cypress locally follow the [setup instructions](https://cypress.io)!
+Then open terminal run:
+
 ```bash
 npx degit jsbase/blogmops blog
-cd blog
-npm install # or yarn!
-npm run dev
+cd blog && touch .env
+echo "PORT=3000" >> .env
+npm i && npm run dev
 ```
 
 Open up [localhost:3000](http://localhost:3000) and start clicking around.
@@ -41,8 +44,7 @@ This is where your markdown posts live in. All `.md` files in this directory are
 
 ## 🚀 Deploy
 
-[![Deploy to Vercel](/button)](/import/project?template=https://github.com/jsbase/blogmops/master)
-
+Fork and import this repo on [vercel.com](https://www.vercel.com/).
 
 ## 🐛 Bugs and feedback
 
