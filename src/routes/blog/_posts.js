@@ -56,7 +56,7 @@ const posts = fs.readdirSync(POSTS_DIR)
     const html = marked(content)
     const readingStats = readingTime(content)
     const printReadingTime = readingStats.text
-    const printDate = formatDate(new Date(date), 'd.MM.YYYY')
+    const printDate = formatDate(new Date(date), 'dd.mm.yyyy')
 
     return {
       title: title || slug,
