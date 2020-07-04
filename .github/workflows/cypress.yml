@@ -8,18 +8,16 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [ 14.x.x ]
+        node: [ 14.5.x ]
         os: [ ubuntu-latest, windows-latest, macOS-latest ]
 
     steps:
+      - name: cypress-run
       - run: git config --global core.autocrlf false
-      - uses: ${{ matrix.node-version }}
-      - name: Checkout
-        uses: actions/checkout@v2.3.1
+      - uses: actions/checkout@v2.3.1
         with:
           token: ${{ github.token }}
-      - name: Cache
-        uses: actions/cache@v2.0.0
+      - uses: actions/cache@v2.0.0
         with:
           path: |
             ~/.cache
@@ -28,9 +26,11 @@ jobs:
             **/src
             !~/.cache/exclude
             !~/.exclude
-          key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}      
-      - name: Run cypress v${{ matrix.node-version }}
-        run: npm i && npm run test
+          key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+      - uses: actions/setup-node@v2.1.0
+        with:
+          node-version: ${{ matrix.node }}
+      - run: npm i && npm run test
         env:
             CI: true
             # CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
