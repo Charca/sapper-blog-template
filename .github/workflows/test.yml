@@ -18,4 +18,4 @@ jobs:
     - run: npm run test
       env:
         CI: true
-        PORT: 5000
+        PORT: ${{ process.env.PORT }}
