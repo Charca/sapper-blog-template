@@ -1,19 +1,19 @@
 describe('blogmops cypress tests ', () => {
 	beforeEach(() => {
 		cy.visit('/')
-	});
+	})
 
 	it('has the correct <h1>', () => {
 		cy.contains('h1', 'Welcome to blogmops')
-	});
+	})
 
 	it('navigates to /about', () => {
-		cy.get('nav a').contains('about').click();
-		cy.url().should('include', '/about');
-	});
+		cy.get('nav a').contains('about').click()
+		cy.url().should('include', '/about')
+	})
 
 	it('navigates to /blog', () => {
-		cy.get('nav a').contains('blog').click();
-		cy.url().should('include', '/blog');
-	});
-});
+		cy.get('nav a').contains('blog').click()
+		cy.url().should('include', '/blog')
+	})
+})

@@ -1,0 +1,64 @@
+{
+  "editor.codeActionsOnSave": {
+      "source.fixAll": true
+  },
+  "editor.formatOnType": false,
+  "editor.formatOnSave": false,
+  "editor.formatOnPaste": false,
+  "javascript.format.enable": false,
+  "html.format.enable": false,
+  "json.format.enable": false,
+  "eslint.alwaysShowStatus": true,
+  "eslint.codeActionsOnSave.mode": "all",
+  "eslint.debug": false,
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
+  "eslint.options": {
+      "extensions": [
+          ".js",
+          ".json"
+      ]
+  },
+  "eslint.validate": [
+      "javascript",
+      "json"
+  ],
+  "[javascript]": {
+      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "[json]": {
+      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+  },
+  "[svelte]": {
+      "editor.defaultFormatter": "JamesBirtles.svelte-vscode"
+  },
+  "emmet.includeLanguages": {
+      "svelte": "html"
+  },
+  "files.exclude": {
+      "**/__sapper__/**": true,
+      "**/..history/**": true,
+      "**/.DS_Store": true,
+      "**/.git": true,
+      "**/.hg": true,
+      "**/.svn": true,
+      "**/CVS": true,
+      "**/package-lock.json": true
+  },
+  "files.watcherExclude": {
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/node_modules/**": true,
+      "**/package.json": true,
+      "**/.vscode/**": true
+  },
+  "search.exclude": {
+      "**/.git/objects/**": true,
+      "**/.git/subtree-cache/**": true,
+      "**/node_modules/**": true,
+      "**/package.json": true,
+      "**/.vscode/**": true
+  },
+  "bookmarks.useWorkaroundForFormatters": true,
+  "terminal.integrated.cursorBlinking": true
+}
