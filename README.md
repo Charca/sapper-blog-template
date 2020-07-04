@@ -2,6 +2,8 @@
 ![cypress](https://github.com/jsbase/blogmops/workflows/cypress/badge.svg?branch=master)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/jsbase/blogmops?label=size)
 
+---
+
 # 🧾 blogmops wiki
 
 Simple markdown (*.md) powered blog posts with [Sapper](https://github.com/sveltejs/sapper) and [Svelte](https://github.com/sveltejs/svelte).
