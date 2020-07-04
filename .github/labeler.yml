@@ -1,12 +1,12 @@
 backend:
   - any: ['./**/*.js', 'src/server.js']
-  - all: ['!src/**/*.js']
+    all: ['!src/**/*.js']
 
-documentation
-  - any: ['./**/*.md']
+documentation:
+  - ./**/*.md
 
 test:
-  - cypress/**/*.spec.js
+  - ./**/*.spec.js
 
 frontend:
 - any: ['src/**/*.js', 'src/**/*.svelte']
