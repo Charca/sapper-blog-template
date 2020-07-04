@@ -1,3 +1,5 @@
+![tests](https://github.com/jsbase/blogmops/workflows/tests/badge.svg?branch=master)
+
 # sapper-blog-template
 
 A starter template for building markdown-powered blogs with [Sapper](https://github.com/sveltejs/sapper) and [Svelte](https://github.com/sveltejs/svelte).
