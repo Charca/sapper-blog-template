@@ -8,10 +8,11 @@ import volleyball from 'volleyball'
 const { PORT, NODE_ENV } = process.env
 
 const dev = NODE_ENV === 'development'
+const CI = NODE_ENV === 'CI'
 
 polka()
-    .use(volleyball)
-    .use(helmet())
+    .use(CI ? volleyball.custom({ debug: true, port: PORT }) : volleyball )
+    .usw(helmet())
     .use(
 	compression({ threshold: 0 }),
 	sirv('static', { dev }),
@@ -19,5 +20,5 @@ polka()
     )
     .listen(PORT, (err) => {
 	if (err) { console.log('error', err); throw err }
-	/* else */ console.log(`🐱‍🏍 Server listening on port ${PORT}`)
+	else { console.log(`🐱‍🏍 Server listening on port ${PORT}`) }
     })
