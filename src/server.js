@@ -5,7 +5,7 @@ import polka from 'polka'
 import helmet from 'helmet'
 import volleyball from 'volleyball'
 
-const { PORT, NODE_ENV } = process.env
+const { PORT, NODE_ENV } = process.env || 5000
 
 const dev = NODE_ENV === 'development'
 
