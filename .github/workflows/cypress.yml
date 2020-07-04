@@ -6,7 +6,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [12, 14]
+        node-version: [14]
         os: [ubuntu-latest, windows-latest, macOS-latest]
     steps:
     - run: git config --global core.autocrlf false
@@ -14,8 +14,7 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm i
-    - run: npm run export
+    - run: npm ci
     - run: npm run test
       env:
         CI: true
