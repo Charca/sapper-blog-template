@@ -10,11 +10,11 @@
   "scripts": {
     "dev": "nodenv --env .env --exec \"sapper dev\"",
     "build": "sapper build --legacy",
-    "start": "nodenv --env .env --exec \"__sapper__/build\"",
+    "start": "nodenv --env .env __sapper__/build",
     "export": "sapper export --legacy",
-    "static": "nodenv --env .env --exec \"npx node-env-run serve __sapper__/export\"",
-    "cy:open": "nodenv --env .env --exec \"cypress open\"",
-    "cy:run": "nodenv --env .env --exec \"cypress run\"",
+    "static": "npx serve __sapper__/export",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
     "test": "run-p -r export cy:run"
   },
   "dependencies": {
