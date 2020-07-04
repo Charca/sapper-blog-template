@@ -1,12 +1,12 @@
 backend:
-  - any: ['./**/*.js', 'src/server.js']
+  - any: ['*/**/*.js', '*/**/*.json', 'src/server.js']
     all: ['!src/**/*.js']
 
 documentation:
-  - ./**/*.md
+  - all: ['*/**/*.md']
 
 test:
-  - ./**/*.spec.js
+  - all: ['*/**/*.spec.js']
 
 frontend:
 - any: ['src/**/*.js', 'src/**/*.svelte']
