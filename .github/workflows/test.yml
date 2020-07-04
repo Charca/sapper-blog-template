@@ -13,8 +13,9 @@ jobs:
     - uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - run: npm run build
+    - run: npm i
+    - run: npm run export
     - run: npm run test
       env:
         CI: true
+        PORT: 5000
