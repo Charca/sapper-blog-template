@@ -1,7 +1,12 @@
 {
-  "name": "TODO",
-  "description": "TODO",
-  "version": "0.0.1",
+  "name": "blogmops",
+  "description": "read some cool stories about a cute pug",
+  "version": "0.5.1",
+  "homepage": "https://blogmops.vercel.app/",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/jsbase/blogmops.git"
+  },
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build --legacy",
