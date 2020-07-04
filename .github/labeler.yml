@@ -1,0 +1,10 @@
+backend:
+  - any: ['./**/*.js', 'src/server.js'],
+  - all: ['!src/**/*.js']
+
+test:
+  - cypress/**/*.spec.js
+
+frontend:
+- any: ['src/**/*.js', 'src/**/*.svelte']
+  all: ['!src/server.js']
