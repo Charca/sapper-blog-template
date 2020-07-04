@@ -1,10 +1,10 @@
-describe('Sapper template app', () => {
+describe('blogmops cypress tests ', () => {
 	beforeEach(() => {
 		cy.visit('/')
 	});
 
 	it('has the correct <h1>', () => {
-		cy.contains('h1', 'Welcome to blogmops!')
+		cy.contains('h1', 'Welcome to blogmops')
 	});
 
 	it('navigates to /about', () => {
