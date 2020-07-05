@@ -10,7 +10,6 @@ Simple markdown (*.md) powered blog posts with [Sapper](https://github.com/svelt
 
 ### 🧷 [Hompage](https://blogmops.vercel.app/)
 
-
 ## ✨ Getting started
 
 To run cypress locally follow the [setup instructions](https://cypress.io)!
