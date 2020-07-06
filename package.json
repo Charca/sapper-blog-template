@@ -70,7 +70,7 @@
     "rollup-plugin-terser": "^6.1.0",
     "sapper": "^0.27.16",
     "svelte": "^3.23.2",
-    "svelte-preprocess": "^3.9.10",
+    "svelte-preprocess": "^3.9.12",
     "volleyball": "^1.5.1"
   },
   "browserslist": [
