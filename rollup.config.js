@@ -1,6 +1,7 @@
 import resolve from '@rollup/plugin-node-resolve';
 import replace from '@rollup/plugin-replace';
 import commonjs from '@rollup/plugin-commonjs';
+import postcss from 'rollup-plugin-postcss';
 import svelte from 'rollup-plugin-svelte';
 import sveltePreprocess from 'svelte-preprocess';
 import babel from '@rollup/plugin-babel';
@@ -14,6 +15,8 @@ import pkg from './package.json'
 const mode = process.env.NODE_ENV
 const dev = mode === 'development'
 const legacy = !!process.env.SAPPER_LEGACY_BUILD
+
+const preprocess = sveltePreprocess({ postcss: true });
 
 const onwarn = (warning, onwarn) => (
 	warning.code === 'CIRCULAR_DEPENDENCY'
@@ -36,8 +39,8 @@ export default {
 		output: config.client.output(),
 		plugins: [
 			replace({ 'process.browser': true, 'process.env.NODE_ENV': JSON.stringify(mode) }),
-			svelte({ preprocess: sveltePreprocess(), dev, hydratable: true, emitCss: true }),
-			resolve({ browser: true, dedupe: ["svelte"] }),
+			svelte({ dev, hydratable: true, preprocess, emitCss: true }),
+			resolve({ browser: true, dedupe: ["svelte, css"] }),
 			commonjs(),
 			legacy && babel({
 				extensions: [".js", ".mjs", ".html", ".svelte"],
@@ -57,8 +60,12 @@ export default {
 		output: config.server.output(),
 		plugins: [
 			replace({ "process.browser": false, "process.env.NODE_ENV": JSON.stringify(mode) }),
-			svelte({ generate: "ssr", dev }),
-			resolve({ dedupe: ["svelte"] }),
+			svelte({ generate: "ssr", dev, preprocess }),
+			postcss({
+                            minimize: true,
+                            extract: path.resolve(__dirname, './static/index.css')
+                        }),
+                        resolve({ dedupe: ["svelte, css"] }),
 			commonjs(),
 			markdown()
 		],
