@@ -46,7 +46,7 @@ export default {
 			commonjs(),
 			legacy &&
 				babel({
-					babelExt,
+					extensions: babelExt,
 					babelHelpers: 'runtime',
 					exclude: ['node_modules/@babel/**'],
 					presets: [['@babel/preset-env', { targets: '> 0.2%, not dead, not ie <= 11, not op_mini all' }]],
