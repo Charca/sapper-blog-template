@@ -1,4 +1,5 @@
 import path from 'path'
+import alias from 'rollup-plugin-alias'
 import resolve from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
 import commonjs from '@rollup/plugin-commonjs'
@@ -20,6 +21,10 @@ const legacy = !!process.env.SAPPER_LEGACY_BUILD
 const babelExt = ['.js', '.svelte']
 const extensions = babelExt.concat(['.css'])
 const preprocess = sveltePreprocess({ postcss: true })
+const aliases = alias({
+	resolve: extensions.reduce((acc, ext) => [...acc, ext, `/index${ext}`], []),
+	'@': path.resolve(__dirname, 'src'),
+})
 
 const onwarn = (warning, onwarn) =>
 	(warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) || // eslint-disable-line
@@ -40,6 +45,7 @@ export default {
 		input: config.client.input(),
 		output: config.client.output(),
 		plugins: [
+			aliases,
 			replace({ 'process.browser': true, 'process.env.NODE_ENV': JSON.stringify(mode) }),
 			svelte({ dev, hydratable: true, preprocess, emitCss: true }),
 			resolve({ browser: true, extensions, dedupe: ['svelte'] }),
@@ -62,6 +68,7 @@ export default {
 		input: config.server.input(),
 		output: config.server.output(),
 		plugins: [
+			aliases,
 			replace({ 'process.browser': false, 'process.env.NODE_ENV': JSON.stringify(mode) }),
 			svelte({ generate: 'ssr', dev, preprocess }),
 			postcss({ minimize: true, extract: path.resolve(__dirname, './static/index.css') }),
@@ -80,7 +87,8 @@ export default {
 		input: config.serviceworker.input(),
 		output: config.serviceworker.output(),
 		plugins: [
-			resolve(),
+			aliases,
+			resolve({ extensions }),
 			replace({
 				'process.browser': true,
 				'process.env.NODE_ENV': JSON.stringify(mode),
@@ -88,7 +96,6 @@ export default {
 			commonjs(),
 			!dev && terser(),
 		],
-
 		preserveEntrySignatures: false,
 		onwarn,
 	},
