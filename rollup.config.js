@@ -12,13 +12,13 @@ import marked from 'marked'
 
 import config from 'sapper/config/rollup'
 import pkg from './package.json'
-import postcssConfig from './postcss.config.js'
 
 const mode = process.env.NODE_ENV
 const dev = mode === 'development'
 const legacy = !!process.env.SAPPER_LEGACY_BUILD
 
-const extensions = ['.js', '.svelte']
+const babelExt = ['.js', '.svelte']
+const extensions = babelExt.concat(['.css'])
 const preprocess = sveltePreprocess({ postcss: true })
 
 const onwarn = (warning, onwarn) =>
@@ -42,11 +42,11 @@ export default {
 		plugins: [
 			replace({ 'process.browser': true, 'process.env.NODE_ENV': JSON.stringify(mode) }),
 			svelte({ dev, hydratable: true, preprocess, emitCss: true }),
-			resolve({ browser: true, ['.css', ...extensions], dedupe: ['svelte'] }),
+			resolve({ browser: true, extensions, dedupe: ['svelte'] }),
 			commonjs(),
 			legacy &&
 				babel({
-					extensions,
+					babelExt,
 					babelHelpers: 'runtime',
 					exclude: ['node_modules/@babel/**'],
 					presets: [['@babel/preset-env', { targets: '> 0.2%, not dead, not ie <= 11, not op_mini all' }]],
@@ -65,7 +65,7 @@ export default {
 			replace({ 'process.browser': false, 'process.env.NODE_ENV': JSON.stringify(mode) }),
 			svelte({ generate: 'ssr', dev, preprocess }),
 			postcss({ minimize: true, extract: path.resolve(__dirname, './static/index.css') }),
-			resolve({ ['.css', ...extensions], dedupe: ['svelte'] }),
+			resolve({ extensions, dedupe: ['svelte'] }),
 			commonjs(),
 			markdown(),
 		],
