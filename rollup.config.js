@@ -18,6 +18,7 @@ const mode = process.env.NODE_ENV
 const dev = mode === 'development'
 const legacy = !!process.env.SAPPER_LEGACY_BUILD
 
+const extensions = ['.mjs', '.js', '.svelte', '.css']
 const preprocess = sveltePreprocess({ postcss: true })
 
 const onwarn = (warning, onwarn) =>
@@ -41,11 +42,11 @@ export default {
 		plugins: [
 			replace({ 'process.browser': true, 'process.env.NODE_ENV': JSON.stringify(mode) }),
 			svelte({ dev, hydratable: true, preprocess, emitCss: true }),
-			resolve({ browser: true, extensions: ['.svelte'], dedupe: ['svelte'] }),
+			resolve({ browser: true, extensions, dedupe: ['svelte'] }),
 			commonjs(),
 			legacy &&
 				babel({
-					extensions: ['.js', '.mjs', '.html', '.svelte'],
+					extensions,
 					babelHelpers: 'runtime',
 					exclude: ['node_modules/@babel/**'],
 					presets: [['@babel/preset-env', { targets: '> 0.2%, not dead, not ie <= 11, not op_mini all' }]],
@@ -63,8 +64,8 @@ export default {
 		plugins: [
 			replace({ 'process.browser': false, 'process.env.NODE_ENV': JSON.stringify(mode) }),
 			svelte({ generate: 'ssr', dev, preprocess }),
-			...postcssConfig.plugins,
-			resolve({ dedupe: ['svelte'] }),
+			postcss({ minimize: true, extract: path.resolve(__dirname, './static/index.css') }),
+			resolve({ extensions, dedupe: ['svelte'] }),
 			commonjs(),
 			markdown(),
 		],

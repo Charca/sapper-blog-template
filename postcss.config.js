@@ -9,7 +9,10 @@ const dev = mode === 'development'
 export default {
 	plugins: [
 		postcssImport,
-		postcssPresetEnv(/* { features: { "focus-within-pseudo-class": false } } */),
+		postcssPresetEnv({
+			'color-mod-function': true,
+			'nesting-rules': true,
+		}),
 		!dev &&
 			postcssPurgecss({
 				content: ['./src/**/*.svelte', './src/**/*.html'],
