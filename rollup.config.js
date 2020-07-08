@@ -15,7 +15,9 @@ import config from 'sapper/config/rollup'
 import pkg from './package.json'
 import postcssConfig from './postcss.config.js'
 
-const mode = process.env.NODE_ENV
+import dotenv from resolve(process.cwd(), '.env')
+const mode = dotenv.NODE_ENV || process.env.NODE_ENV
+
 const dev = mode === 'development'
 const legacy = !!process.env.SAPPER_LEGACY_BUILD
 
