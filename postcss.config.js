@@ -8,19 +8,15 @@ const mode = process.env.NODE_ENV
 const dev = mode === 'development'
 
 export default {
+	scss: true,
 	plugins: [
 		postcssImport,
-		postcssPresetEnv({
-			'color-mod-function': true,
-			'nesting-rules': true,
-		}),
+		postcssPresetEnv({ 'color-mod-function': true, 'nesting-rules': true }),
 		autoprefixer(),
 		!dev && postcssPurgecss({
 			content: ['./src/**/*.svelte', './src/**/*.html'],
 			defaultExtractor: (content) => [...content.matchAll(/(?:class:)*([\w\d-/:%.]+)/gm)].map(([_match, group, ..._rest]) => group)
 		}),
-		!dev && cssnano({
-			preset: ['default', { discardComments: { removeAll: true } }]
-		}),
+		!dev && cssnano({ preset: ['default', { discardComments: { removeAll: true } }] }),
 	].filter(Boolean),
 }
