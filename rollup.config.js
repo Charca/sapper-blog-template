@@ -42,7 +42,7 @@ export default {
 		output: config.client.output(),
 		plugins: [
 			replace({ 'process.browser': true, 'process.env.NODE_ENV': JSON.stringify(mode) }),
-			svelte({ dev, hydratable: true, preprocess, emitCss: true }),
+			svelte({ dev, hydratable: true, sveltePreprocess(postcssConfig), emitCss: true }),
 			resolve({ browser: true, extensions, dedupe: ['svelte'] }),
 			commonjs(),
 			legacy &&
@@ -81,7 +81,6 @@ export default {
 		input: config.serviceworker.input(),
 		output: config.serviceworker.output(),
 		plugins: [
-			/* aliases, */
 			resolve({ extensions }),
 			replace({
 				'process.browser': true,
