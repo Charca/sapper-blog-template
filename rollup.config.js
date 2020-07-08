@@ -46,7 +46,7 @@ export default {
 		input: config.client.input(),
 		output: config.client.output(),
 		plugins: [
-			
+			/* aliases, */
 			replace({ 'process.browser': true, 'process.env.NODE_ENV': JSON.stringify(mode) }),
 			svelte({ preprocess, dev, hydratable: true, emitCss: true }),
 			resolve({ browser: true, extensions, dedupe: ['svelte'] }),
@@ -69,7 +69,7 @@ export default {
 		input: config.server.input(),
 		output: config.server.output(),
 		plugins: [
-
+                        /* aliases, */
 			replace({ 'process.browser': false, 'process.env.NODE_ENV': JSON.stringify(mode) }),
 			svelte({ generate: 'ssr', dev, preprocess }),
 			postcss({ minimize: true, extract: path.resolve(__dirname, './static/index.css') }),
@@ -88,7 +88,7 @@ export default {
 		input: config.serviceworker.input(),
 		output: config.serviceworker.output(),
 		plugins: [
-			aliases,
+			/* aliases, */
 			resolve({ extensions }),
 			replace({
 				'process.browser': true,
