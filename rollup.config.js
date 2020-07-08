@@ -19,8 +19,9 @@ const mode = process.env.NODE_ENV
 const dev = mode === 'development'
 const legacy = !!process.env.SAPPER_LEGACY_BUILD
 
-const babelExt = ['.js', '.svelte']
-const extensions = babelExt.concat(['.css'])
+/* const babelExt = ['.js', '.svelte']
+const extensions = babelExt.concat(['.css']) */
+const extensions = ['.js', '.svelte']
 const onwarn = (warning, onwarn) =>
 	(warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) || onwarn(warning)
 
@@ -43,7 +44,7 @@ export default {
 			commonjs(),
 			legacy &&
 				babel({
-					extensions: babelExt,
+					extensions,
 					babelHelpers: 'runtime',
 					exclude: ['node_modules/@babel/**'],
 					presets: [['@babel/preset-env', { targets: pkg.browserslist.toString() }]],
