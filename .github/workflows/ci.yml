@@ -19,9 +19,6 @@ jobs:
         with:
           path: |
             ~/.cache
-            **/node_modules
-            **/static
-            **/__sapper__/export
             !~/.cache/exclude
             !~/.exclude
           key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
