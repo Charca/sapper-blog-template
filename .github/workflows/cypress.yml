@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        node: [ 14.x ]
+        node: [ 14.5.x ]
         os: [ ubuntu-latest, windows-latest, macOS-latest ]
 
     steps:
@@ -32,13 +32,17 @@ jobs:
       - run: npm i && npm run test
         env:
             CI: true
-            PORT: ${{ process.env.PORT }}
+            PORT: 5000
+            NODE_ENV: production
             # CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
       - name: setup-chromedriver
         uses: nanasess/setup-chromedriver@v1.0.1
         with:
-          working-directory: ./
-          browser: chrome
+          chromedriver-version: '77.0.3865.40'
+      - run: |
+          export DISPLAY=:99
+          chromedriver --url-base=/wd/hub &
+          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
       - name: upload artifact
         uses: actions/upload-artifact@v2
         with:
