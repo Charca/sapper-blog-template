@@ -8,9 +8,9 @@
     "url": "https://github.com/jsbase/blogmops.git"
   },
   "scripts": {
-    "dev": "nodenv --env .env --exec \"sapper dev\"",
+    "dev": "sapper dev",
     "build": "sapper build --legacy",
-    "start": "nodenv --env .env __sapper__/build",
+    "start": "node __sapper__/build",
     "export": "sapper export --legacy",
     "static": "npx serve __sapper__/export",
     "cy:open": "cypress open",
@@ -24,7 +24,6 @@
     "gray-matter": "^4.0.2",
     "helmet": "^3.23.3",
     "marked": "^1.1.0",
-    "node-env-run": "^3.0.2",
     "polka": "^1.0.0-next.11",
     "prismjs": "^1.16.0",
     "reading-time": "^1.2.0",
