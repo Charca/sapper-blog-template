@@ -39,7 +39,7 @@ export default {
 		plugins: [
 			replace({ 'process.browser': true, 'process.env.NODE_ENV': JSON.stringify(mode) }),
 			svelte({ dev, hydratable: true, preprocess: sveltePreprocess(postcssConfig), emitCss: true }),
-			resolve({ browser: true, extensions, dedupe: ['svelte'] }),
+			resolve({ browser: true, /* extensions, */dedupe: ['svelte'] }),
 			commonjs(),
 			legacy &&
 				babel({
@@ -62,7 +62,7 @@ export default {
 			replace({ 'process.browser': false, 'process.env.NODE_ENV': JSON.stringify(mode) }),
 			svelte({ generate: 'ssr', dev, preprocess: sveltePreprocess(postcssConfig) }),
 			postcss({ minimize: true, extract: path.resolve(__dirname, './static/index.css') }),
-			resolve({ extensions, dedupe: ['svelte'] }),
+			resolve({ /*extensions, */dedupe: ['svelte'] }),
 			commonjs(),
 			markdown(),
 		],
@@ -77,7 +77,7 @@ export default {
 		input: config.serviceworker.input(),
 		output: config.serviceworker.output(),
 		plugins: [
-			resolve({ extensions }),
+			// resolve({ extensions }),
 			replace({ 'process.browser': true, 'process.env.NODE_ENV': JSON.stringify(mode) }),
 			commonjs(),
 			!dev && terser(),
