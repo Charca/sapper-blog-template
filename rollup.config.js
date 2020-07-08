@@ -13,6 +13,7 @@ import marked from 'marked'
 
 import config from 'sapper/config/rollup'
 import pkg from './package.json'
+import postcssConfig from './postcss.config.js'
 
 const mode = process.env.NODE_ENV
 const dev = mode === 'development'
@@ -20,7 +21,7 @@ const legacy = !!process.env.SAPPER_LEGACY_BUILD
 
 const babelExt = ['.js', '.svelte']
 const extensions = babelExt.concat(['.css'])
-const preprocess = sveltePreprocess({ postcss: true })
+const preprocess = sveltePreprocess(postcssConfig)
 const aliases = alias({
 	resolve: extensions.reduce((acc, ext) => [...acc, ext, `/index${ext}`], []),
 	'@': path.resolve(__dirname, 'src'),
@@ -47,7 +48,7 @@ export default {
 		plugins: [
 			aliases,
 			replace({ 'process.browser': true, 'process.env.NODE_ENV': JSON.stringify(mode) }),
-			svelte({ dev, hydratable: true, preprocess, emitCss: true }),
+			svelte({ preprocess, dev, hydratable: true, emitCss: true }),
 			resolve({ browser: true, extensions, dedupe: ['svelte'] }),
 			commonjs(),
 			legacy &&
@@ -55,7 +56,7 @@ export default {
 					extensions: babelExt,
 					babelHelpers: 'runtime',
 					exclude: ['node_modules/@babel/**'],
-					presets: [['@babel/preset-env', { targets: '> 0.2%, not dead, not ie <= 11, not op_mini all' }]],
+					presets: [['@babel/preset-env', { targets: pkg.browserslist.toString() }]],
 					plugins: ['@babel/plugin-syntax-dynamic-import', ['@babel/plugin-transform-runtime', { useESModules: true }]],
 				}),
 			!dev && terser({ module: true }),
