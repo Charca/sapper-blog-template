@@ -20,16 +20,14 @@ jobs:
         with:
           path: |
             ~/.cache
-            **/node_modules
-            **/static
-            **/__sapper__/export
             !~/.cache/exclude
             !~/.exclude
           key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
       - uses: actions/setup-node@v2.1.0
         with:
           node-version: ${{ matrix.node }}
-      - run: npm i && npm run test
+      - run: npm i && npm run build
+      - run npm run test
         env:
             CI: true
             PORT: 5000
