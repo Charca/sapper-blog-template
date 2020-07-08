@@ -11,8 +11,8 @@ const dev = NODE_ENV === 'development'
 
 const app = polka()
 
-if (dev) {
-    app
+// if (dev) {
+  app
 	.use(!dev ? volleyball.custom({ debug: true }) : volleyball)
 	.use(helmet())
 	.use(compression({ threshold: 0 }), sirv('static', { dev }), sapper.middleware())
@@ -24,8 +24,8 @@ if (dev) {
 		// else
 		console.log(`🎈 Server listening on port ${PORT}`)
 	})
-} else {
-  app.use(sapper.middleware())
-}
+// } else {
+//  app.use(sapper.middleware())
+// }
 
-export default app
+// export default app
