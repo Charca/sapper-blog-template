@@ -32,8 +32,6 @@ jobs:
             # CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
       - name: setup-chromedriver
         uses: nanasess/setup-chromedriver@master
-        with:
-          chromedriver-version: '84.0.4147.30'
       - run: |
           export DISPLAY=:99
           chromedriver --url-base=/wd/hub &
