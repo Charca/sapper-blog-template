@@ -1,4 +1,5 @@
 import cssnano from 'cssnano'
+import autoprefixer from 'autoprefixer'
 import postcssImport from 'postcss-import'
 import postcssPresetEnv from 'postcss-preset-env'
 import postcssPurgecss from '@fullhuman/postcss-purgecss'
@@ -13,12 +14,13 @@ export default {
 			'color-mod-function': true,
 			'nesting-rules': true,
 		}),
-		!dev &&
-			postcssPurgecss({
-				content: ['./src/**/*.svelte', './src/**/*.html'],
-				defaultExtractor: (content) =>
-					[...content.matchAll(/(?:class:)*([\w\d-/:%.]+)/gm)].map(([_match, group, ..._rest]) => group),
-			}),
-		!dev && cssnano({ preset: ['default', { discardComments: { removeAll: true } }] }),
+		autoprefixer(),
+		!dev && postcssPurgecss({
+			content: ['./src/**/*.svelte', './src/**/*.html'],
+			defaultExtractor: (content) => [...content.matchAll(/(?:class:)*([\w\d-/:%.]+)/gm)].map(([_match, group, ..._rest]) => group)
+		}),
+		!dev && cssnano({
+			preset: ['default', { discardComments: { removeAll: true } }]
+		}),
 	].filter(Boolean),
 }
