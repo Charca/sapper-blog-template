@@ -26,10 +26,7 @@ jobs:
       - uses: actions/setup-node@v2.1.0
         with:
           node-version: ${{ matrix.node }}
-      - run: npm i && npm run Export
-        env:
-          production: true
-      - run npm run test
+      - run: npm i && npm run test
         env:
             CI: true
             # CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
