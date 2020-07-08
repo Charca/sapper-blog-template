@@ -1,4 +1,4 @@
-import path from 'path'
+import * as path from 'path'
 import resolve from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
 import commonjs from '@rollup/plugin-commonjs'
@@ -12,10 +12,9 @@ import marked from 'marked'
 
 import config from 'sapper/config/rollup'
 import pkg from './package.json'
-import dotenv from './.env'
 import postcssConfig from './postcss.config.js'
 
-const mode = dotenv.NODE_ENV || process.env.NODE_ENV
+const mode = process.env.NODE_ENV
 
 const dev = mode === 'development'
 const legacy = !!process.env.SAPPER_LEGACY_BUILD
