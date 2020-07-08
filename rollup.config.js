@@ -1,3 +1,4 @@
+import path from 'path'
 import resolve from '@rollup/plugin-node-resolve'
 import replace from '@rollup/plugin-replace'
 import commonjs from '@rollup/plugin-commonjs'
@@ -11,9 +12,9 @@ import marked from 'marked'
 
 import config from 'sapper/config/rollup'
 import pkg from './package.json'
+import dotenv from './.env'
 import postcssConfig from './postcss.config.js'
 
-import dotenv from resolve(process.cwd(), '.env')
 const mode = dotenv.NODE_ENV || process.env.NODE_ENV
 
 const dev = mode === 'development'
@@ -21,18 +22,14 @@ const legacy = !!process.env.SAPPER_LEGACY_BUILD
 
 const babelExt = ['.js', '.svelte']
 const extensions = babelExt.concat(['.css'])
-
 const onwarn = (warning, onwarn) =>
-	(warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) || // eslint-disable-line
-	onwarn(warning)
+	(warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) || onwarn(warning)
 
 const markdown = () => ({
 	transform(md, id) {
 		if (!/\.md$/.test(id)) return null
 		const data = marked(md)
-		return {
-			code: `export default ${JSON.stringify(data.toString())};`,
-		}
+		return { code: `export default ${JSON.stringify(data.toString())};` }
 	},
 })
 
@@ -42,7 +39,7 @@ export default {
 		output: config.client.output(),
 		plugins: [
 			replace({ 'process.browser': true, 'process.env.NODE_ENV': JSON.stringify(mode) }),
-			svelte({ dev, hydratable: true, sveltePreprocess(postcssConfig), emitCss: true }),
+			svelte({ dev, hydratable: true, preprocess: sveltePreprocess(postcssConfig), emitCss: true }),
 			resolve({ browser: true, extensions, dedupe: ['svelte'] }),
 			commonjs(),
 			legacy &&
@@ -64,7 +61,7 @@ export default {
 		output: config.server.output(),
 		plugins: [
 			replace({ 'process.browser': false, 'process.env.NODE_ENV': JSON.stringify(mode) }),
-			svelte({ generate: 'ssr', dev, sveltePreprocess(postcssConfig) }),
+			svelte({ generate: 'ssr', dev, preprocess: sveltePreprocess(postcssConfig) }),
 			postcss({ minimize: true, extract: path.resolve(__dirname, './static/index.css') }),
 			resolve({ extensions, dedupe: ['svelte'] }),
 			commonjs(),
@@ -82,10 +79,7 @@ export default {
 		output: config.serviceworker.output(),
 		plugins: [
 			resolve({ extensions }),
-			replace({
-				'process.browser': true,
-				'process.env.NODE_ENV': JSON.stringify(mode),
-			}),
+			replace({ 'process.browser': true, 'process.env.NODE_ENV': JSON.stringify(mode) }),
 			commonjs(),
 			!dev && terser(),
 		],

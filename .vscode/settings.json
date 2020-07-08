@@ -1,6 +1,6 @@
 {
   "editor.codeActionsOnSave": {
-      "source.fixAll": true
+      "source.fixAll": false
   },
   "editor.formatOnType": false,
   "editor.formatOnSave": false,
@@ -12,16 +12,19 @@
   "eslint.codeActionsOnSave.mode": "all",
   "eslint.debug": false,
   "eslint.format.enable": true,
-  "eslint.lintTask.enable": true,
+  "eslint.lintTask.enable": false,
   "eslint.options": {
       "extensions": [
           ".js",
-          ".json"
+          ".json",
+          ".html",
+          ".svelte"
       ]
   },
   "eslint.validate": [
       "javascript",
-      "json"
+      "json",
+      "html"
   ],
   "[javascript]": {
       "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
@@ -59,6 +62,5 @@
       "**/package.json": true,
       "**/.vscode/**": true
   },
-  "bookmarks.useWorkaroundForFormatters": true,
   "terminal.integrated.cursorBlinking": true
 }
