@@ -14,7 +14,7 @@ jobs:
       - run: git config --global core.autocrlf false
       - uses: actions/checkout@v2.3.1
         with:
-          token: ${{ github.token }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/cache@v2.0.0
         with:
           path: |
@@ -26,5 +26,3 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
       - run: npm i && npm run export
-        env:
-          production: true
