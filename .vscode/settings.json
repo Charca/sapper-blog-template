@@ -62,5 +62,12 @@
       "**/package.json": true,
       "**/.vscode/**": true
   },
-  "terminal.integrated.cursorBlinking": true
+"terminal.integrated.cursorBlinking": true,
+"cSpell.words": [
+    "autocrlf",
+    "ffprobe",
+    "mplayer",
+    "nanasess",
+    "xvfb"
+]
 }

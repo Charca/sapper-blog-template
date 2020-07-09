@@ -8,52 +8,56 @@ jobs:
 
     strategy:
       matrix:
-        node: [ 14.x ]
-        os: [ ubuntu-latest, macOS-latest ]
-
+        node: [ '12', '14' ]
+        os: [ ubuntu-latest, macOS-latest, windows-latest ]
     steps:
       - run: git config --global core.autocrlf false
-      - uses: actions/checkout@v2.3.1
+      - uses: actions/checkout@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/cache@v2.0.0
+      - uses: actions/cache@master
         with:
           path: |
             ~/.cache
             !~/.cache/exclude
+            ~/.static
             !~/.exclude
           key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
-      - uses: actions/setup-node@v2.1.0
+      - uses: actions/setup-node@master
         with:
           node-version: ${{ matrix.node }}
-      - run: npm i && npm run test
+      - run: npm i
+      - run: npm run test
         env:
             CI: true
-            # CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+            # or something else, like: CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
       - name: setup-chromedriver
         uses: nanasess/setup-chromedriver@master
-        with:	
-          chromedriver-version: '84.0.4147.30'
+        with:
+          chromedriver-version: '83.0.4103.39'
       - run: |
-          export DISPLAY=:99
-          chromedriver --url-base=/wd/hub &
-          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
+            google-chrome --version
+            sudo pip3 install selenium ffprobe mplayer
+            export DISPLAY=:99
+            chromedriver --url-base=/wd/hub &
+            sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # disable headless mode
+            python3 $GITHUB_WORKSPACE/__tests__/chromedriver.py
       - name: upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@master
         with:
           name: cypress-screenshots
           path: cypress/screenshots
       - run: npx image-size cypress/screenshots/**/*.png
         working-directory: ./
-      - name: upload artifact
-        uses: actions/upload-artifact@v2
+      - name: upload chrome-screenshots
+        uses: actions/upload-artifact@master
         with:
           name: screenshots-chrome
           path: cypress/screenshots/chrome
       - name: upload artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@master
         with:
-          name: videos-chrome
+          name: upload chrome-videos
           path: cypress/videos/chrome
       - run: npx image-size cypress/screenshots/**/*.png
         working-directory: ./
