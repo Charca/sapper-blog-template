@@ -33,15 +33,6 @@ jobs:
             # or something else, like: CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
       - name: setup-chromedriver
         uses: nanasess/setup-chromedriver@master
-        with:
-          chromedriver-version: '83.0.4103.39'
-      - run: |
-            google-chrome --version
-            sudo pip3 install selenium ffprobe mplayer
-            export DISPLAY=:99
-            chromedriver --url-base=/wd/hub &
-            sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # disable headless mode
-            python3 $GITHUB_WORKSPACE/__tests__/chromedriver.py
       - name: upload artifact
         uses: actions/upload-artifact@master
         with:
