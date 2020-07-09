@@ -1,7 +1,6 @@
 {
-  {
-    "env": {
-      "CHROMEDRIVER_WIN": "",
-      "CHROMEDRIVER_DEFAULT": ""
-    }
+  "env": {
+      "NODE_ENV": "CI",
+      "PORT": 5000
+  }
 }
