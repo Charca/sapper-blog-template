@@ -47,7 +47,14 @@ export default {
 					presets: [['@babel/preset-env', { targets: pkg.browserslist.toString() }]],
 					plugins: [
 						'@babel/plugin-syntax-dynamic-import',
-						['@babel/plugin-transform-runtime', { useESModules: true }]
+						[
+							'@babel/plugin-transform-runtime',
+							{
+								useESModules: true,
+								sourceMaps: false,
+								inputSourceMap: false,
+							},
+						],
 					],
 				}),
 			!dev && terser({ module: true }),
@@ -64,8 +71,6 @@ export default {
 			svelte({ generate: 'ssr', dev, preprocess: sveltePreprocess(postcssConfig) }),
 			postcss({
 				minimize: true,
-				sourceMaps: false,
-				inputSourceMap: false,
 				extract: path.resolve(__dirname, './static/index.css'),
 			}),
 			resolve({ dedupe: ['svelte'] }),
@@ -83,6 +88,7 @@ export default {
 		input: config.serviceworker.input(),
 		output: config.serviceworker.output(),
 		plugins: [
+			resolve(),
 			replace({ 'process.browser': true, 'process.env.NODE_ENV': JSON.stringify(mode) }),
 			commonjs(),
 			!dev && terser(),

@@ -2,9 +2,6 @@
   "editor.codeActionsOnSave": {
     "source.fixAll": false
   },
-  "editor.formatOnType": false,
-  "editor.formatOnSave": false,
-  "editor.formatOnPaste": false,
   "javascript.format.enable": false,
   "html.format.enable": false,
   "json.format.enable": false,
@@ -12,19 +9,16 @@
   "eslint.codeActionsOnSave.mode": "all",
   "eslint.debug": false,
   "eslint.lintTask.enable": false,
-  "eslint.validate": [
-    "javascript",
-    "json",
-    "html"
-  ],
+  "eslint.enable": true,
+  "editor.defaultFormatter": "vscode"
   "[javascript]": {
-    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[json]": {
-    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[svelte]": {
-    "editor.defaultFormatter": "JamesBirtles.svelte-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "emmet.includeLanguages": {
     "svelte": "html"
@@ -69,33 +63,8 @@
     "purgecss"
   ],
   "html.format.preserveNewLines": false,
-  "javascript.format.insertSpaceAfterCommaDelimiter": false,
-  "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
-  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
-  "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-  "javascript.format.insertSpaceAfterSemicolonInForStatements": false,
-  "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": false,
-  "typescript.format.enable": false,
-  "typescript.format.insertSpaceAfterCommaDelimiter": false,
-  "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
-  "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
-  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
-  "typescript.format.insertSpaceAfterSemicolonInForStatements": false,
-  "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": false,
-  "prettier.useTabs": true,
   "prettier.vueIndentScriptAndStyle": true,
   "prettier.withNodeModules": true,
   "eslint.format.enable": true,
-  "eslint.probe": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "html",
-    "vue",
-    "markdown",
-    "svelte",
-    "css"
-  ],
   "eslint.quiet": true
 }
