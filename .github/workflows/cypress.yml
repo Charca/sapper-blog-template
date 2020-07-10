@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        node: [ 12, 14 ]
+        node: [ 10, 12, 14 ]
         os: [ ubuntu-latest, macos-latest, windows-latest ]
     steps:
       - run: git config --global core.autocrlf false
@@ -33,6 +33,12 @@ jobs:
             # or something else, like: CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
       - name: setup-chromedriver
         uses: nanasess/setup-chromedriver@master
+        # with:
+          # chromedriver-version: '83.0.4103.39'
+      - run: |
+          export DISPLAY=:99
+          chromedriver --url-base=/wd/hub &
+          sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
       - name: upload artifact
         uses: actions/upload-artifact@master
         with:
