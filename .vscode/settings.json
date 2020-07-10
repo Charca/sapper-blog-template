@@ -65,9 +65,18 @@
 "terminal.integrated.cursorBlinking": true,
 "cSpell.words": [
     "autocrlf",
+    "chromedriver",
     "ffprobe",
     "mplayer",
     "nanasess",
+    "onwarn",
+    "purgecss",
     "xvfb"
+],
+"cSpell.ignoreWords": [
+    "fullhuman",
+    "fullhuman postcss purgecss",
+    "postcss",
+    "purgecss"
 ]
 }
