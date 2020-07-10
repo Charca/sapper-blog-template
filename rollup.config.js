@@ -37,12 +37,6 @@ export default {
 		plugins: [
 			replace({ 'process.browser': true, 'process.env.NODE_ENV': JSON.stringify(mode) }),
 			svelte({ dev, hydratable: true, preprocess: sveltePreprocess(postcssConfig), emitCss: true }),
-			postcss({
-				minimize: false,
-				sourceMaps: false,
-				inputSourceMap: false,
-				extract: path.resolve(__dirname, './static/index.css'),
-			}),
 			resolve({ browser: true, dedupe: ['svelte'] }),
 			commonjs(),
 			legacy &&
