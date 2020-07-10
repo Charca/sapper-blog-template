@@ -13,5 +13,5 @@
 // https://on.cypress.io/configuration
 // ***********************************************************
 
-import './logger'
 import '@cypress/code-coverage/support'
+import './commands'
