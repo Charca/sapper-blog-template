@@ -1,3 +1,7 @@
+// enables intelligent code completion for Cypress commands
+// https://on.cypress.io/intelligent-code-completion
+/// <reference types="Cypress" />
+
 describe('blogmops cypress tests ', () => {
 	beforeEach(() => {
 		cy.visit('/')

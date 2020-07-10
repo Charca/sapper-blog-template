@@ -1,6 +1,11 @@
 {
+  "baseUrl": "http://localhost",
+  "port": 5000,
+  "viewportHeight": 1080,
+  "viewportWidth": 1920,
   "env": {
-      "NODE_ENV": "CI",
-      "PORT": 5000
+    "codeCoverage": {
+      "url": "http://localhost:5000/__coverage__"
+    }
   }
 }
