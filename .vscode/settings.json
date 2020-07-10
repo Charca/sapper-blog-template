@@ -64,7 +64,6 @@
     "purgecss",
     "xvfb"
     "fullhuman",
-    "fullhuman postcss purgecss",
     "postcss",
     "purgecss"
   ],
@@ -97,5 +96,7 @@
     "svelte",
     "css"
   ],
-  "eslint.quiet": true
+  "eslint.quiet": true,
+  "bookmarks.useWorkaroundForFormatters": true,
+  "prettier.useEditorConfig": true
 }
