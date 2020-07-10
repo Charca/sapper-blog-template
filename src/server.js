@@ -14,5 +14,10 @@ polka()
 	.use(helmet())
 	.use(compression({ threshold: 0 }), sirv('static', { dev }), sapper.middleware())
 	.listen(PORT, (err) => {
-		if (err) { console.log('error', err); throw err } console.log(`🎈 Server listening on port ${PORT}`)
+		if (err) {
+			console.log('error', err)
+			throw err
+		}
+
+		console.log(`🎈 Server listening on port ${PORT}`)
 	})

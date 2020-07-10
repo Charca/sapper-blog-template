@@ -12,7 +12,7 @@ const logMessage = s => {
 }
 
 // -- This is a parent command --
-Cypress.Commands.add("login", (email, password) =>
+Cypress.Commands.add("login", (email, password) => {
 	!email || !password ? logMessage(`User "${email}" had no password 😨`) : logMessage(`User "${email}" logged in 📣`)
 })
 

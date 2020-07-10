@@ -4,25 +4,29 @@ on: [ push, pull_request ]
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        node-version: [ 14.x ]
-
+        node: [ 14.x ]
+        os: [ ubuntu-latest ] # ubuntu-latest, macos-latest, windows-latest
     steps:
       - run: git config --global core.autocrlf false
-      - uses: actions/checkout@v2.3.1
+      - uses: actions/checkout@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/cache@v2.0.0
+      - uses: actions/cache@master
         with:
           path: |
             ~/.cache
             !~/.cache/exclude
+            ~/.static
             !~/.exclude
           key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
-      - uses: actions/setup-node@v2.1.0
+      - uses: actions/setup-node@master
         with:
           node-version: ${{ matrix.node }}
-      - run: npm i && npm run export
+      - run: npm i
+      - run: npm run export
+      - run: npm run static
+      - run: ps aux | grep -i node | awk '{print $2}' | xargs
