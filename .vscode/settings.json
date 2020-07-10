@@ -65,6 +65,7 @@
 "terminal.integrated.cursorBlinking": true,
 "cSpell.words": [
     "autocrlf",
+    "chromedriver",
     "ffprobe",
     "mplayer",
     "nanasess",
