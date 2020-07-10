@@ -1,5 +1,5 @@
 {
-  "baseUrl": "http://localhost",
+  "baseUrl": "http://localhost:5000",
   "port": 5000,
   "viewportHeight": 1080,
   "viewportWidth": 1920,
