@@ -1,5 +1,11 @@
 {
-  "plugins": [
-    "istanbul"
-  ]
+  "env": {
+    "CI": {
+      "plugins": [
+        "istanbul", {
+          "exclude": [ "**/*.spec.js" ]
+        }
+      ]
+    }
+  }
 }

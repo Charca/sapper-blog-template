@@ -1,6 +1,6 @@
 {
   "editor.codeActionsOnSave": {
-      "source.fixAll": false
+    "source.fixAll": false
   },
   "editor.formatOnType": false,
   "editor.formatOnSave": false,
@@ -11,59 +11,50 @@
   "eslint.alwaysShowStatus": true,
   "eslint.codeActionsOnSave.mode": "all",
   "eslint.debug": false,
-  "eslint.format.enable": true,
   "eslint.lintTask.enable": false,
-  "eslint.options": {
-      "extensions": [
-          ".js",
-          ".json",
-          ".html",
-          ".svelte"
-      ]
-  },
   "eslint.validate": [
-      "javascript",
-      "json",
-      "html"
+    "javascript",
+    "json",
+    "html"
   ],
   "[javascript]": {
-      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
   "[json]": {
-      "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
   },
   "[svelte]": {
-      "editor.defaultFormatter": "JamesBirtles.svelte-vscode"
+    "editor.defaultFormatter": "JamesBirtles.svelte-vscode"
   },
   "emmet.includeLanguages": {
-      "svelte": "html"
+    "svelte": "html"
   },
   "files.exclude": {
-      "**/__sapper__/**": true,
-      "**/..history/**": true,
-      "**/.DS_Store": true,
-      "**/.git": true,
-      "**/.hg": true,
-      "**/.svn": true,
-      "**/CVS": true,
-      "**/package-lock.json": true
+    "**/__sapper__/**": true,
+    "**/..history/**": true,
+    "**/.DS_Store": true,
+    "**/.git": true,
+    "**/.hg": true,
+    "**/.svn": true,
+    "**/CVS": true,
+    "**/package-lock.json": true
   },
   "files.watcherExclude": {
-      "**/.git/objects/**": true,
-      "**/.git/subtree-cache/**": true,
-      "**/node_modules/**": true,
-      "**/package.json": true,
-      "**/.vscode/**": true
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/package.json": true,
+    "**/.vscode/**": true
   },
   "search.exclude": {
-      "**/.git/objects/**": true,
-      "**/.git/subtree-cache/**": true,
-      "**/node_modules/**": true,
-      "**/package.json": true,
-      "**/.vscode/**": true
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true,
+    "**/node_modules/**": true,
+    "**/package.json": true,
+    "**/.vscode/**": true
   },
-"terminal.integrated.cursorBlinking": true,
-"cSpell.words": [
+  "terminal.integrated.cursorBlinking": true,
+  "cSpell.words": [
     "autocrlf",
     "chromedriver",
     "ffprobe",
@@ -72,11 +63,39 @@
     "onwarn",
     "purgecss",
     "xvfb"
-],
-"cSpell.ignoreWords": [
     "fullhuman",
     "fullhuman postcss purgecss",
     "postcss",
     "purgecss"
-]
+  ],
+  "html.format.preserveNewLines": false,
+  "javascript.format.insertSpaceAfterCommaDelimiter": false,
+  "javascript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+  "javascript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+  "javascript.format.insertSpaceAfterSemicolonInForStatements": false,
+  "javascript.format.insertSpaceBeforeAndAfterBinaryOperators": false,
+  "typescript.format.enable": false,
+  "typescript.format.insertSpaceAfterCommaDelimiter": false,
+  "typescript.format.insertSpaceAfterFunctionKeywordForAnonymousFunctions": false,
+  "typescript.format.insertSpaceAfterKeywordsInControlFlowStatements": false,
+  "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": false,
+  "typescript.format.insertSpaceAfterSemicolonInForStatements": false,
+  "typescript.format.insertSpaceBeforeAndAfterBinaryOperators": false,
+  "prettier.useTabs": true,
+  "prettier.vueIndentScriptAndStyle": true,
+  "prettier.withNodeModules": true,
+  "eslint.format.enable": true,
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "vue",
+    "markdown",
+    "svelte",
+    "css"
+  ],
+  "eslint.quiet": true
 }

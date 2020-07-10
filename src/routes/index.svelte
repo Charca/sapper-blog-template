@@ -23,8 +23,13 @@
   }
 
   figure {
-    margin: 0 1em;
     text-align: center;
+  }
+
+  @media (min-width: 1024px) {
+	  figure {
+		  margin: 0 1em;
+	  }
   }
 
   figcaption {
@@ -38,7 +43,7 @@
     width: 100%;
     overflow: hidden;
     display: block;
-    margin: 0 0 35px 30px;
+    margin: 0 0 35px 0;
     border-radius: 50%;
   }
 
@@ -46,6 +51,7 @@
     .profile-image {
       max-height: 380px;
       max-width: 380px;
+	  margin-left:  30px;
     }
   }
 
