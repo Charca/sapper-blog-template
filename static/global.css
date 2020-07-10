@@ -14,17 +14,17 @@ h1, h2, h3, h4, h5, h6 {
   font-family: Rubik, sans-serif;
   font-weight: 700;
   line-height: 1.2;
-  margin: 0 0 0.5em 0;
+  margin-bottom: 0.5em;
 }
 
 h1 {
   font-family: Merriweather, serif;
   font-size: 4em;
-  margin: 0 0 1em 0;
+  margin-bottom: 1em;
 }
 
 h2 {
-  margin: 1.6em 0 0 0;
+  margin-top: 1.6em;
   font-size: 1.8em;
 }
 
@@ -139,11 +139,11 @@ figure {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
+  font-family: inherit;
   vertical-align: baseline;
   -webkit-margin-start: 0;
   -webkit-margin-end: 0;
-  margin: 0 0 3em 0;
+  margin-bottom: 3em;
 }
 
 table {

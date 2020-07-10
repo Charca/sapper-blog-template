@@ -13,7 +13,7 @@
 
 module.exports = (on, config) => {
 	// to get the code coverage from unit tests
-  // also use .babelrc file when bundling spec files
+	// also use .babelrc file when bundling spec files
 	// https://glebbahmutov.com/blog/combined-end-to-end-and-unit-test-coverage/
 
 	// or use browserify and just push babel-plugin-istanbul
@@ -21,7 +21,7 @@ module.exports = (on, config) => {
 	// on('file:preprocessor', require('../../use-browserify-istanbul'))
 
 	// IMPORTANT to return the config object with changed environment variable
-  require('@cypress/code-coverage/task')(on, config)
+	require('@cypress/code-coverage/task')(on, config)
 
 	return config
 }
