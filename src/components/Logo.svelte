@@ -7,7 +7,4 @@
   }
 </style>
 
-<a href="/">
-	<span>🐾</span>
-	blogmops
-</a>
+<a href="/">🐾 blogmops</a>
