@@ -19,9 +19,6 @@ const mode = process.env.NODE_ENV
 const dev = mode === 'development'
 const legacy = !!process.env.SAPPER_LEGACY_BUILD
 
-/* const babelExt = ['.js', '.svelte']
-const extensions = babelExt.concat(['.css']) */
-const extensions = ['.js', '.svelte']
 const onwarn = (warning, onwarn) =>
 	(warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) || onwarn(warning)
 
@@ -40,11 +37,17 @@ export default {
 		plugins: [
 			replace({ 'process.browser': true, 'process.env.NODE_ENV': JSON.stringify(mode) }),
 			svelte({ dev, hydratable: true, preprocess: sveltePreprocess(postcssConfig), emitCss: true }),
-			resolve({ browser: true, /* extensions, */dedupe: ['svelte'] }),
+			postcss({
+				minimize: false,
+				sourceMaps: false,
+				inputSourceMap: false,
+				extract: path.resolve(__dirname, './static/index.css'),
+			}),
+			resolve({ browser: true, dedupe: ['svelte'] }),
 			commonjs(),
 			legacy &&
 				babel({
-					extensions,
+					extensions: ['.js', '.svelte'],
 					babelHelpers: 'runtime',
 					exclude: ['node_modules/@babel/**'],
 					presets: [['@babel/preset-env', { targets: pkg.browserslist.toString() }]],
@@ -62,8 +65,13 @@ export default {
 		plugins: [
 			replace({ 'process.browser': false, 'process.env.NODE_ENV': JSON.stringify(mode) }),
 			svelte({ generate: 'ssr', dev, preprocess: sveltePreprocess(postcssConfig) }),
-			postcss({ minimize: true, extract: path.resolve(__dirname, './static/index.css') }),
-			resolve({ /*extensions, */dedupe: ['svelte'] }),
+			postcss({
+				minimize: true,
+				sourceMaps: false,
+				inputSourceMap: false,
+				extract: path.resolve(__dirname, './static/index.css'),
+			}),
+			resolve({ dedupe: ['svelte'] }),
 			commonjs(),
 			markdown(),
 		],
@@ -78,7 +86,6 @@ export default {
 		input: config.serviceworker.input(),
 		output: config.serviceworker.output(),
 		plugins: [
-			// resolve({ extensions }),
 			replace({ 'process.browser': true, 'process.env.NODE_ENV': JSON.stringify(mode) }),
 			commonjs(),
 			!dev && terser(),
