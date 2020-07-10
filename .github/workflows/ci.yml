@@ -29,4 +29,4 @@ jobs:
       - run: npm i
       - run: npm run export
       - run: npm run static
-      - run: ps aux | grep -i node | awk '{print $2}' | xargs
+      - run: ps aux | grep node | awk '{print $2}' | xargs kill
