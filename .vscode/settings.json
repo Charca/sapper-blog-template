@@ -1,16 +1,4 @@
 {
-  "editor.codeActionsOnSave": {
-    "source.fixAll": false
-  },
-  "javascript.format.enable": false,
-  "html.format.enable": false,
-  "json.format.enable": false,
-  "eslint.alwaysShowStatus": true,
-  "eslint.codeActionsOnSave.mode": "all",
-  "eslint.debug": false,
-  "eslint.lintTask.enable": false,
-  "eslint.enable": true,
-  "editor.defaultFormatter": "vscode"
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -20,9 +8,40 @@
   "[svelte]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
+  "bookmarks.useWorkaroundForFormatters": true,
+  "cSpell.words": [
+    "autocrlf",
+    "chromedriver",
+    "ffprobe",
+    "mplayer",
+    "nanasess",
+    "onwarn",
+    "purgecss",
+    "xvfb",
+    "fullhuman",
+    "postcss",
+    "purgecss"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll": false
+  },
+  "editor.defaultFormatter": "vscode.typescript-language-features",
   "emmet.includeLanguages": {
     "svelte": "html"
   },
+  "eslint.alwaysShowStatus": true,
+  "eslint.codeActionsOnSave.mode": "all",
+  "eslint.debug": false,
+  "eslint.enable": true,
+  "eslint.format.enable": true,
+  "eslint.probe": [
+    "javascript",
+    "javascriptreact",
+    "html",
+    "markdown",
+    "svelte"
+  ],
+  "eslint.quiet": true,
   "files.exclude": {
     "**/__sapper__/**": true,
     "**/..history/**": true,
@@ -36,35 +55,20 @@
   "files.watcherExclude": {
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
+    "**/.vscode/**": true,
     "**/node_modules/**": true,
-    "**/package.json": true,
-    "**/.vscode/**": true
+    "**/package.json": true
   },
+  "html.format.preserveNewLines": false,
+  "prettier.useEditorConfig": true,
+  "prettier.vueIndentScriptAndStyle": true,
+  "prettier.withNodeModules": true,
   "search.exclude": {
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
+    "**/.vscode/**": true,
     "**/node_modules/**": true,
-    "**/package.json": true,
-    "**/.vscode/**": true
+    "**/package.json": true
   },
-  "terminal.integrated.cursorBlinking": true,
-  "cSpell.words": [
-    "autocrlf",
-    "chromedriver",
-    "ffprobe",
-    "mplayer",
-    "nanasess",
-    "onwarn",
-    "purgecss",
-    "xvfb"
-    "fullhuman",
-    "fullhuman postcss purgecss",
-    "postcss",
-    "purgecss"
-  ],
-  "html.format.preserveNewLines": false,
-  "prettier.vueIndentScriptAndStyle": true,
-  "prettier.withNodeModules": true,
-  "eslint.format.enable": true,
-  "eslint.quiet": true
+  "terminal.integrated.cursorBlinking": true
 }
