@@ -19,8 +19,8 @@
     "static": "npx serve __sapper__/export",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "test": "run-p -r export cy:run",
-    "test:dev": "run-p -r build cy:run"
+    "test": "run-p -r export static cy:run",
+    "test:dev": "run-p -r dev cy:run"
   },
   "dependencies": {
     "compression": "^1.7.4",
