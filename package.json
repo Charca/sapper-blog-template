@@ -23,6 +23,7 @@
     "test:dev": "run-p -r dev cy:run"
   },
   "dependencies": {
+    "@types/node": "^14.0.22",
     "compression": "^1.7.4",
     "date-fns": "^2.14.0",
     "gray-matter": "^4.0.2",

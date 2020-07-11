@@ -1,4 +1,7 @@
 {
+  "semi": false,
+  "singleQuote": true,
+  "trailingComma": "all",
   "plugins": [
     "prettier-plugin-eslint",
     "prettier-plugin-svelte"

@@ -11,7 +11,7 @@
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
 import os from 'os'
-import codeCoverageTask from '@cypress/code-coverage/task'
+import task from '@cypress/code-coverage/task'
 
 module.exports = (on, config) => {
 	// to get the code coverage from unit tests
@@ -21,20 +21,23 @@ module.exports = (on, config) => {
 	// or use browserify and just push babel-plugin-istanbul
 	// directory to the list of babelify plugins
 	// on('file:preprocessor', require('../../use-browserify-istanbul'))
-	on('before:browser:launch', (browser, launchOptions) => {
-		console.log('before launching browser')
-		console.log(browser)
-		if (browser.name === 'chrome') {
-			// https://www.ghacks.net/2013/10/06/list-useful-google-chrome-command-line-switches/
-			launchOptions.args.push('--window-size=1920,1080')
 
-			console.log('chrome launch args:')
-			console.log(launchOptions.args.join(os.EOL))
-			return launchOptions
-		}
-	})
-	// IMPORTANT to return the config object with changed environment variable
-	codeCoverageTask(on, config)
+	task(
+		on('before:browser:launch', (browser, launchOptions) => {
+			console.log('before launching browser')
+			console.log(browser)
+
+			if (browser.name === 'chrome') {
+				// https://www.ghacks.net/2013/10/06/list-useful-google-chrome-command-line-switches/
+				launchOptions.args.push('--window-size=1920,1080')
+
+				console.log('chrome launch args:')
+				console.log(launchOptions.args.join(os.EOL))
+				return launchOptions
+			}
+		}),
+		config,
+	)
 
 	return config
 }
