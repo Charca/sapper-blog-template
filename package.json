@@ -19,10 +19,11 @@
     "static": "npx serve __sapper__/export",
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "test": "run-p -r export cy:run",
-    "test:dev": "run-p -r build cy:run"
+    "test": "run-p -r export static cy:run",
+    "test:dev": "run-p -r dev cy:run"
   },
   "dependencies": {
+    "@types/node": "^14.0.22",
     "compression": "^1.7.4",
     "date-fns": "^2.14.0",
     "gray-matter": "^4.0.2",

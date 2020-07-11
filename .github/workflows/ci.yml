@@ -28,5 +28,3 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: npm i
       - run: npm run export
-      - run: npm run static
-      - run: ps aux | grep "node" | awk '{print $2}' | xargs kill -9 $1
