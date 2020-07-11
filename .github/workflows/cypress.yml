@@ -33,9 +33,9 @@ jobs:
 			NODE_ENV: production
       - name: setup-chromedriver
         uses: nanasess/setup-chromedriver@master
-      - run: |
-          export DISPLAY=:99
-          chromedriver --url-base=/wd/hub
+      # - run: |
+          # export DISPLAY=:99
+          # chromedriver --url-base=/wd/hub
 		  # & sudo Xvfb -ac :99 -screen 0 1920x1080x32 > /dev/null 2>&1 & # optional
       - name: upload artifact
         uses: actions/upload-artifact@master
