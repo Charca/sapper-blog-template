@@ -8,18 +8,18 @@
  * @param {string} s Message to log.
  */
 const logMessage = (s) => {
-	cy.log(`${s} \`[@cypress/code-coverage]\``)
-}
+	cy.log(`${s} \`[@cypress/code-coverage]\``);
+};
 
 // -- This is a parent command --
 Cypress.Commands.add('login', (email, password) => {
 	if (!email || !password) {
-		return logMessage(`User "${email}" had no password 😨`)
+		return logMessage(`User "${email}" had no password 😨`);
 	}
 
 	// else:
-	return logMessage(`User "${email}" logged in 📣`)
-})
+	return logMessage(`User "${email}" logged in 📣`);
+});
 
 // -- This is a child command --
 // Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
