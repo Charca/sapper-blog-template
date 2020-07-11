@@ -11,6 +11,7 @@
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
 import os from 'os'
+import codeCoverageTask from '@cypress/code-coverage/task'
 
 module.exports = (on, config) => {
 	// to get the code coverage from unit tests
@@ -33,7 +34,7 @@ module.exports = (on, config) => {
 		}
 	})
 	// IMPORTANT to return the config object with changed environment variable
-	require('@cypress/code-coverage/task')(on, config)
+	codeCoverageTask(on, config)
 
 	return config
 }
