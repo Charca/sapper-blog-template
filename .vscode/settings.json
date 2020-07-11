@@ -70,5 +70,8 @@
     "**/node_modules/**": true,
     "**/package.json": true
   },
-  "terminal.integrated.cursorBlinking": true
+  "terminal.integrated.cursorBlinking": true,
+  "projectManager.git.baseFolders": [
+      "."
+  ]
 }
