@@ -20,8 +20,7 @@ Then open terminal run:
 
 ```shell
 $ › npx degit jsbase/blogmops blog
-$ › cd blog && touch .env
-$ › echo "PORT=3000" >> .env
+$ › cd blog
 $ › npm i && npm run dev
 ```
 
