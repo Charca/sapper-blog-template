@@ -1,10 +1,4 @@
 {
-  "baseUrl": "http://localhost:5000",
   "viewportHeight": 1080,
-  "viewportWidth": 1920,
-  "env": {
-    "codeCoverage": {
-      "url": "http://localhost:5000/__coverage__"
-    }
-  }
+  "viewportWidth": 1920
 }

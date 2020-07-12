@@ -1,8 +1,8 @@
 /.cache/
 /__sapper__/
-/__coverage__/
-/node_modules/
-/src/node_modules/
+/coverage/
+**/node_modules/
+cypress.env.json
 /cypress/screenshots/
 /cypress/fixtures/
 /cypress/videos/

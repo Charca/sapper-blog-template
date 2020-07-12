@@ -1,16 +1,15 @@
 name: cypress
 
-on: [ push, pull_request ]
+on: [push, pull_request]
 
 jobs:
-
   build:
     runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        node: [ 14.x ]
-        os: [ ubuntu-latest ] # ubuntu-latest, macos-latest, windows-latest
+        node: [14.x]
+        os: [ubuntu-latest] # ubuntu-latest, macos-latest, windows-latest
 
     steps:
       - run: git config --global core.autocrlf false
@@ -26,13 +25,30 @@ jobs:
             ~/.static
             !~/.exclude
           key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
-      - uses: actions/setup-node@master
+      #   - uses: actions/setup-node@master
+      #     with:
+      #       node-version: ${{ matrix.node }}
+      #   - run: npm i
+      #   - run: npm run test
+      #     env:
+      #         CI: true
+      - name: cypress-io
+        uses: cypress-io/github-action@master
+        id: ${{ secrets.CYPRESS_PROJECT_ID }}
+        continue-on-error: true
         with:
-          node-version: ${{ matrix.node }}
-      - run: npm i
-      - run: npm run test
+          working-directory: examples/recording
+          record: true
+          parallel: true
+          group: Recording example
+          tag: action
         env:
-            CI: true
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Print Dashboard URL
+        run: |
+          echo Cypress finished with: ${{ steps.cypress.outcome }}
+          echo See results at ${{ steps.cypress.outputs.dashboardUrl }}
       - name: upload artifact
         uses: actions/upload-artifact@master
         with:

@@ -4,7 +4,7 @@ package-lock.json
 .archive
 .history
 .cache
-__coverage__
+coverage
 __sapper__
 cypress/videos
 cypress/screenshots
