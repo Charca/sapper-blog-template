@@ -31,25 +31,25 @@ jobs:
         - run: npm i
         - run: npm run test
           env:
-              CI: true
-		  wait-on: http://localhost:5000
-      - name: cypress-io
-        uses: cypress-io/github-action@master
-        id: ${{ secrets.CYPRESS_PROJECT_ID }}
-        continue-on-error: true
-        with:
-          working-directory: ./cypress/videos
-          record: true
-          parallel: true
-          group: Recording example
-          tag: action
-        env:
-          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Print Dashboard URL
-        run: |
-          echo Cypress finished with: ${{ steps.cypress.outcome }}
-          echo See results at ${{ steps.cypress.outputs.dashboardUrl }}
+            CI: true
+          wait-on: http://localhost:5000
+        - name: cypress-io
+          uses: cypress-io/github-action@master
+          id: ${{ secrets.CYPRESS_PROJECT_ID }}
+          continue-on-error: true
+          with:
+            working-directory: ./cypress/videos
+            record: true
+            parallel: true
+            group: Recording example
+            tag: action
+          env:
+           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        - name: Print Dashboard URL
+          run: |
+            echo Cypress finished with: ${{ steps.cypress.outcome }}
+            echo See results at ${{ steps.cypress.outputs.dashboardUrl }}
     #   - name: upload artifact
     #     uses: actions/upload-artifact@master
     #     with:
