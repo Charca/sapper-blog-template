@@ -24,6 +24,6 @@ polka()
       throw err;
     }
 
-    console.log(JSON.stringify(process.env.CYPRESS_PROJECT_ID));
+    console.log(JSON.stringify(process.env.PORT));
     console.log(`🎈 Server listening on port ${PORT}`);
   });
