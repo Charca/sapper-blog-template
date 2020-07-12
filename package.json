@@ -7,10 +7,6 @@
     "type": "git",
     "url": "https://github.com/jsbase/blogmops.git"
   },
-  "nyc": {
-    "all": true,
-    "include": "*.js"
-  },
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build --legacy",
