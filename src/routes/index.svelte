@@ -27,13 +27,13 @@
   }
 
   @media (min-width: 1024px) {
-	  figure {
-		  margin: 0 1em;
-	  }
+    figure {
+      margin: 0 1em;
+    }
   }
 
   figcaption {
-    font-size: .8em;
+    font-size: 0.8em;
     font-style: italic;
   }
 
@@ -51,7 +51,7 @@
     .profile-image {
       max-height: 380px;
       max-width: 380px;
-	  margin-left:  30px;
+      margin-left: 30px;
     }
   }
 
@@ -82,17 +82,24 @@
   <div class="home-copy">
     <h1>Welcome to blogmops</h1>
 
-    <p>Check out my <a href="/blog">blog</a> posts.</p>
+    <p>
+      Check out my
+      <a href="/blog">blog</a>
+      posts.
+    </p>
   </div>
 
   <figure>
     <div class="profile-image">
-      <img alt="blogmops selfie"
-        srcset="images/blogmops.webp 375w, images/blogmops.webp 768w, images/blogmops.webp 1024w">
+      <img
+        alt="blogmops selfie"
+        srcset="images/blogmops.webp 375w, images/blogmops.webp 768w,
+        images/blogmops.webp 1024w" />
     </div>
 
     <figcaption>
-      That's me: the <a href="/">blogmops</a>
+      That's me: the
+      <a href="/">blogmops</a>
     </figcaption>
   </figure>
 </div>

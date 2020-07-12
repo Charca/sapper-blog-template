@@ -1,6 +1,5 @@
 {
   "plugins": [
-    "prettier-plugin-eslint",
-    "prettier-plugin-svelte"
+    "prettier-plugin-eslint"
   ]
 }

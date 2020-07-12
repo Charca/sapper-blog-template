@@ -1,7 +1,7 @@
 <style>
-p {
-  font-size: 18px;
-}
+  p {
+    font-size: 18px;
+  }
 </style>
 
 <svelte:head>
@@ -12,6 +12,8 @@ p {
   <h1>About</h1>
 
   <p>
-    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, autem ab ipsa deleniti recusandae nulla. Quasi beatae numquam impedit voluptatum. Dolores quas dolorem fuga atque, voluptas sunt explicabo quos perferendis!
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis, autem ab
+    ipsa deleniti recusandae nulla. Quasi beatae numquam impedit voluptatum.
+    Dolores quas dolorem fuga atque, voluptas sunt explicabo quos perferendis!
   </p>
 </div>

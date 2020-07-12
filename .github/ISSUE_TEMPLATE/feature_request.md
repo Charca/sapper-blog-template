@@ -1,10 +1,9 @@
 ---
 name: Feature request
-about: Suggest an idea for this project
-title: ''
-labels: feature
-assignees: jsbase
-
+about: Suggest a new feature for blogmops.
+title: "feature_request"
+labels: "feature"
+assignees: "jsbase-dev"
 ---
 
 **Is your feature request related to a problem? Please describe.**

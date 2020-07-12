@@ -9,8 +9,8 @@ So today i started my brand new blog in the.. so called "internet".
 
 At the end I was so tired, look!
 
-![alt text](/images/blog/hello-people/hello001.webp "Snoozing")
+![alt text](/images/blog/hello/hello001.webp "Snoozing")
 
 But I did it... somehow! 😅
 
-![alt text](/images/blog/hello-people/hello002.webp "Wake up")
+![alt text](/images/blog/hello002.webp "Wake up")

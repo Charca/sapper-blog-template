@@ -1,5 +1,6 @@
 /.cache/
 /__sapper__/
+/__coverage__/
 /node_modules/
 /src/node_modules/
 /cypress/screenshots/

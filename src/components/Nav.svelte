@@ -27,14 +27,14 @@
   }
 
   a::before {
-    content: '';
+    content: "";
     position: absolute;
-    transition: transform .3s ease;
+    transition: transform 0.3s ease;
     left: 0;
     bottom: 0;
     width: 100%;
     height: 2px;
-    background: #AAA;
+    background: #aaa;
     transform: scaleX(0);
   }
 
@@ -49,7 +49,9 @@
 </style>
 
 <nav>
-  <a class='{segment === undefined ? "selected" : ""}' href='.'>home</a>
-  <a class='{segment === "about" ? "selected" : ""}' href='about'>about</a>
-  <a rel=prefetch class='{segment === "blog" ? "selected" : ""}' href='blog'>blog</a>
+  <a class={segment === undefined ? 'selected' : ''} href=".">home</a>
+  <a class={segment === 'about' ? 'selected' : ''} href="about">about</a>
+  <a rel="prefetch" class={segment === 'blog' ? 'selected' : ''} href="blog">
+    blog
+  </a>
 </nav>

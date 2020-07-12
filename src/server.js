@@ -1,23 +1,27 @@
-import sirv from 'sirv'
-import compression from 'compression'
-import * as sapper from '@sapper/server'
-import polka from 'polka'
-import helmet from 'helmet'
-import volleyball from 'volleyball'
+import sirv from "sirv";
+import compression from "compression";
+import * as sapper from "@sapper/server";
+import polka from "polka";
+import helmet from "helmet";
+import volleyball from "volleyball";
 
-const { PORT, NODE_ENV } = process.env || 5000
+const { PORT, NODE_ENV } = process.env || 5000;
 
-const dev = NODE_ENV === 'development'
+const dev = NODE_ENV === "development";
 
 polka()
-	.use(!dev ? volleyball.custom({ debug: true }) : volleyball)
-	.use(helmet())
-	.use(compression({ threshold: 0 }), sirv('static', { dev }), sapper.middleware())
-	.listen(PORT, (err) => {
-		if (err) {
-			console.log('error', err)
-			throw err
-		}
+  .use(volleyball.custom({ debug: true }))
+  .use(helmet())
+  .use(
+    compression({ threshold: 0 }),
+    sirv("static", { dev }),
+    sapper.middleware()
+  )
+  .listen(PORT, (err) => {
+    if (err) {
+      console.log("error", err);
+      throw err;
+    }
 
-		console.log(`🎈 Server listening on port ${PORT}`)
-	})
+    console.log(`🎈 Server listening on port ${PORT}`);
+  });

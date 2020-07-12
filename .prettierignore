@@ -3,6 +3,8 @@ package-lock.json
 .vscode
 .archive
 .history
+.cache
+__coverage__
 __sapper__
 cypress/videos
 cypress/screenshots

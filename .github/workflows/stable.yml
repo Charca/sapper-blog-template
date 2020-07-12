@@ -1,4 +1,4 @@
-name: ci
+name: stable
 
 on: [ push, pull_request ]
 

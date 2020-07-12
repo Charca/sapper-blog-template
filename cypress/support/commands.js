@@ -7,19 +7,17 @@
  * so the user knows the log message is coming from this plugin.
  * @param {string} s Message to log.
  */
-const logMessage = (s) => {
+/* const logMessage = (s) => {
 	cy.log(`${s} \`[@cypress/code-coverage]\``);
 };
-
 // -- This is a parent command --
-Cypress.Commands.add('login', (email, password) => {
+/* Cypress.Commands.add('login', (email, password) => {
 	if (!email || !password) {
 		return logMessage(`User "${email}" had no password 😨`);
 	}
 
-	// else:
 	return logMessage(`User "${email}" logged in 📣`);
-});
+}); */
 
 // -- This is a child command --
 // Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })

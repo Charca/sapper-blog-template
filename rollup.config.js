@@ -1,34 +1,34 @@
-import * as path from 'path'
-import resolve from '@rollup/plugin-node-resolve'
-import replace from '@rollup/plugin-replace'
-import commonjs from '@rollup/plugin-commonjs'
-import postcss from 'rollup-plugin-postcss'
-import svelte from 'rollup-plugin-svelte'
-import sveltePreprocess from 'svelte-preprocess'
-import babel from '@rollup/plugin-babel'
-import { terser } from 'rollup-plugin-terser'
+import * as path from 'path';
+import resolve from '@rollup/plugin-node-resolve';
+import replace from '@rollup/plugin-replace';
+import commonjs from '@rollup/plugin-commonjs';
+import postcss from 'rollup-plugin-postcss';
+import svelte from 'rollup-plugin-svelte';
+import sveltePreprocess from 'svelte-preprocess';
+import babel from '@rollup/plugin-babel';
+import { terser } from 'rollup-plugin-terser';
 
-import marked from 'marked'
+import marked from 'marked';
 
-import config from 'sapper/config/rollup'
-import pkg from './package.json'
-import postcssConfig from './postcss.config.js'
+import config from 'sapper/config/rollup';
+import pkg from './package.json';
+import postcssConfig from './postcss.config.js';
 
-const mode = process.env.NODE_ENV
+const mode = process.env.NODE_ENV;
 
-const dev = mode === 'development'
-const legacy = !!process.env.SAPPER_LEGACY_BUILD
+const dev = mode === 'development';
+const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
 const onwarn = (warning, onwarn) =>
-	(warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) || onwarn(warning)
+	(warning.code === 'CIRCULAR_DEPENDENCY' && /[/\\]@sapper[/\\]/.test(warning.message)) || onwarn(warning);
 
 const markdown = () => ({
 	transform(md, id) {
-		if (!/\.md$/.test(id)) return null
-		const data = marked(md)
-		return { code: `export default ${JSON.stringify(data.toString())};` }
+		if (!/\.md$/.test(id)) return null;
+		const data = marked(md);
+		return { code: `export default ${JSON.stringify(data.toString())};` };
 	},
-})
+});
 
 export default {
 	client: {
@@ -71,14 +71,14 @@ export default {
 			svelte({ generate: 'ssr', dev, preprocess: sveltePreprocess(postcssConfig) }),
 			postcss({
 				minimize: true,
-				extract: path.resolve(__dirname, './static/index.css'),
+				extract: path.resolve(__dirname, './static/global.css'),
 			}),
 			resolve({ dedupe: ['svelte'] }),
 			commonjs(),
 			markdown(),
 		],
 		external: Object.keys(pkg.dependencies).concat(
-			require('module').builtinModules || Object.keys(process.binding('natives')),
+			require('module').builtinModules || Object.keys(process.binding('natives'))
 		),
 		preserveEntrySignatures: 'strict',
 		onwarn,
@@ -96,4 +96,4 @@ export default {
 		preserveEntrySignatures: false,
 		onwarn,
 	},
-}
+};
