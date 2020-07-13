@@ -13,5 +13,4 @@ node_modules
 coverage
 *.lock
 *.log
-*.env.*
-**/cypress.env.json
+*.env.json
