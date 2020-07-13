@@ -3,7 +3,7 @@ title: Office 💼
 date: "2020-07-10T14:02:19.730Z"
 ---
 
-## Office
+## A day in the office
 
 Oh boy! It was so busy at the office! Hard decisions had to be made!
 

@@ -1,0 +1,41 @@
+name: build
+
+on:
+  pull_request:
+    paths-ignore:
+      - '*.md'
+
+jobs:
+  stable:
+    name: on ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Cache
+        uses: actions/cache@master
+        with:
+          path: |
+            ~/.cache
+            !~/.cache/exclude
+            ~/.static
+            !~/.exclude
+          key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+
+      - name: Download
+        run: npm i
+
+      - name: Installation
+        run: npm run export
+        env:
+          PORT: 5000
+          NODE_ENV: production

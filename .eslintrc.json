@@ -1,88 +1,63 @@
 {
-  "env": {
-		"node": true,
-		"browser": true,
-		"cypress/globals": true,
-		"es2020": true
-	},
+  "plugins": ["json", "cypress", "prettier"],
   "extends": [
-		"eslint:recommended",
+    "eslint:recommended",
+    "plugin:json/recommended",
     "plugin:cypress/recommended",
-		"plugin:json/recommended",
-		"plugin:prettier/recommended",
-    "prettier/babel",
-		"prettier/standard"
-	],
-	"plugins": [
-		"cypress",
-    "babel",
-		"json",
-		"prettier"
-	],
-	"parserOptions": {
-		"ecmaVersion": 11,
-		"sourceType": "module"
-	},
-	"rules": {
-		"global-require": "off",
-		"json/*": [
-			"error",
-			"allowComments"
-		],
-		"class-methods-use-this": "off",
-		"import/prefer-default-export": "off",
-		"import/no-extraneous-dependencies": "off",
-		"indent": [
-			"error",
-			"tab"
-		],
-		"no-console": "off",
-		"no-tabs": [
-			"error",
-			{
-				"allowIndentationTabs": true
+    "plugin:prettier/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
+  },
+  "env": {
+    "node": true,
+    "browser": true,
+    "cypress/globals": true,
+    "es2020": true
+  },
+  "rules": {
+    "global-require": "off",
+    "json/*": ["error", "allowComments"],
+    "class-methods-use-this": "off",
+    "import/prefer-default-export": "off",
+    "import/no-extraneous-dependencies": "off",
+    "indent": ["error", "tab"],
+    "no-console": "off",
+    "no-tabs": [
+      "error",
+      {
+        "allowIndentationTabs": true
       }
-		],
-		"no-unused-vars": [
-			"error",
-			{
-				"argsIgnorePattern": "^_"
-			}
-		],
-    "babel/new-cap": 1,
-    "babel/camelcase": 1,
-    "babel/no-invalid-this": 1,
-    "babel/object-curly-spacing": 1,
-    "babel/quotes": 1,
-    "babel/semi": 1,
-    "babel/no-unused-expressions": 1,
-    "babel/array-bracket-spacing": "always",
-    "babel/valid-typeof": 1,
-		"cypress/no-assigning-return-values": "error",
+    ],
+    "no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "quotes": ["error", "single"],
+    "cypress/no-assigning-return-values": "error",
     "cypress/no-unnecessary-waiting": "error",
     "cypress/assertion-before-screenshot": "warn",
     "cypress/no-force": "warn",
     "cypress/no-async-tests": "error",
-		"prettier/prettier": 2
-	},
-	"overrides": [
-		{
-			"files": [
-				"*.svelte"
-			],
-			"plugins": [
-				"svelte3"
-			],
-			"processor": "svelte3/svelte3",
-			"rules": {
-				"import/first": "off",
-				"import/no-duplicates": "off",
-				"import/no-mutable-exports": "off",
-				"import/no-mutable-unresolved": "off",
-				"no-multiple-empty-lines": "off",
-				"no-undef": "off",
-				"no-unused-vars": "off"
-			}
-		}
-	]
+    "prettier/prettier": 2
+  },
+  "overrides": [
+    {
+      "files": ["*.svelte"],
+      "plugins": ["svelte3"],
+      "processor": "svelte3/svelte3",
+      "rules": {
+        "import/first": "off",
+        "import/no-duplicates": "off",
+        "import/no-mutable-exports": "off",
+        "import/no-mutable-unresolved": "off",
+        "no-multiple-empty-lines": "off",
+        "no-undef": "off",
+        "no-unused-vars": "off"
+      }
+    }
+  ]
 }

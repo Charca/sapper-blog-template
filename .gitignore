@@ -1,15 +1,17 @@
-/.cache/
-/__sapper__/
-/coverage/
-**/node_modules/
-cypress.env.json
-/cypress/screenshots/
-/cypress/fixtures/
-/cypress/videos/
-package-lock.json
-yarn-error.log
 .DS_Store
+.env
 .history
 .vercel
-.env
-.vscode
+/__sapper__/
+/.cache/
+/.vscode/
+/coverage/
+/cypress/fixtures/
+/cypress/screenshots/
+/cypress/videos/
+/node_modules/
+/src/node_modules/
+# cypress.env.json
+# package-lock.json
+yarn-error.log
+node_modules

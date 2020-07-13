@@ -1,5 +1,7 @@
 {
-  "plugins": [
-    "prettier-plugin-eslint"
-  ]
+  "tabWidth": 2,
+  "useTabs": true,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "plugins": ["prettier-plugin-eslint", "prettier-plugin-svelte"]
 }

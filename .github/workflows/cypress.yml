@@ -1,23 +1,30 @@
-name: cypress
+name: test
 
-on: [push, pull_request]
+on:
+  pull_request:
+    paths-ignore:
+      - '*.md'
 
 jobs:
-  build:
-    runs-on: ${{ matrix.os }}
+  test:
+    name: on ${{ matrix.os }}
 
     strategy:
       matrix:
-        node: [14.x]
-        os: [ubuntu-latest] # ubuntu-latest, macos-latest, windows-latest
+        os: [macos-latest]
+        # os: [ubuntu-latest, windows-latest]
+        # machines: [1, 2]
+
+    runs-on: ${{ matrix.os }}
 
     steps:
-      - run: git config --global core.autocrlf false
-      - uses: actions/checkout@master
+      - name: Checkout
+        uses: actions/checkout@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-      - uses: nanasess/setup-chromedriver@master
-      - uses: actions/cache@master
+
+      - name: Caching
+        uses: actions/cache@master
         with:
           path: |
             ~/.cache
@@ -25,49 +32,45 @@ jobs:
             ~/.static
             !~/.exclude
           key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
-        - uses: actions/setup-node@master
-          with:
-            node-version: ${{ matrix.node }}
-        - run: npm i
-        - run: npm run test
-          env:
-            CI: true
-          wait-on: http://localhost:5000
-        - name: cypress-io
-          uses: cypress-io/github-action@master
-          id: ${{ secrets.CYPRESS_PROJECT_ID }}
-          continue-on-error: true
-          with:
-            working-directory: ./cypress/videos
-            record: true
-            parallel: true
-            group: Recording example
-            tag: action
-          env:
-           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        - name: Print Dashboard URL
-          run: |
-            echo Cypress finished with: ${{ steps.cypress.outcome }}
-            echo See results at ${{ steps.cypress.outputs.dashboardUrl }}
-    #   - name: upload artifact
-    #     uses: actions/upload-artifact@master
-    #     with:
-    #       name: cypress-screenshots
-    #       path: cypress/screenshots
-    #   - run: npx image-size cypress/screenshots/**/*.png
-    #     working-directory: ./
-    #   - name: upload chrome-screenshots
-    #     uses: actions/upload-artifact@master
-    #     with:
-    #       name: screenshots-chrome
-    #       path: cypress/screenshots/chrome
-    #   - name: upload artifact
-    #     uses: actions/upload-artifact@master
-    #     with:
-    #       name: upload chrome-videos
-    #       path: cypress/videos/chrome
-    #   - run: npx image-size cypress/screenshots/**/*.png
-    #     working-directory: ./
-    #   - run: ffprobe cypress/videos/*.mp4 || true
-    #   - run: mplayer -really-quiet -ao null -vo null -identify -frames 0 cypress/videos/*.mp4 || true
+
+      - name: Installation
+        uses: actions/setup-node@master
+        with:
+          node-version: ${{ matrix.node }}
+        run: npm i
+
+      - name: Run cypress test
+        run: npm run test
+        env:
+          CI: true
+          PORT: 5000
+          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+
+      - name: Artifact upload screenshots
+        uses: actions/upload-artifact@master
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
+
+      - name: Size images
+        run: npx image-size cypress/screenshots/**/*.png
+        working-directory: ./
+
+      - name: Artifact upload chrome screenshots
+        uses: actions/upload-artifact@master
+        with:
+          name: screenshots-chrome
+          path: cypress/screenshots/chrome
+
+      - name: Artifact upload videos
+        uses: actions/upload-artifact@master
+        with:
+          name: upload chrome-videos
+          path: cypress/videos/chrome
+
+      - run: |
+          npx image-size cypress/screenshots/**/*.png
+          ffprobe cypress/videos/*.mp4 || true
+          mplayer -really-quiet -ao null -vo null -identify -frames 0 cypress/videos/*.mp4 || true
+        working-directory: ./
