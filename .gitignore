@@ -5,12 +5,12 @@
 __sapper__
 .cache
 .vscode
-coverage
 cypress/fixtures
 cypress/screenshots
 cypress/videos
 node_modules
-src/node_modules
-package-lock.json
-yarn-error.log
-cypress.env.json
+.nyc_output
+coverage
+*.lock
+*.log
+*.env.*

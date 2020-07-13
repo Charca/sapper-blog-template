@@ -1,4 +1,4 @@
-name: build
+name: Build action runner
 
 on:
   pull_request:
@@ -6,7 +6,7 @@ on:
       - '*.md'
 
 jobs:
-  stable:
+  build:
     name: on ${{ matrix.os }}
 
     strategy:
@@ -16,12 +16,17 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-      - name: Checkout
+      - name: Checkout project
         uses: actions/checkout@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Cache
+      - name: Checkout nodeJS
+        uses: actions/setup-node@master
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Caching
         uses: actions/cache@master
         with:
           path: |
@@ -31,10 +36,10 @@ jobs:
             !~/.exclude
           key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
 
-      - name: Download
+      - name: Install dependencies
         run: npm i
 
-      - name: Installation
+      - name: Install project
         run: npm run export
         env:
           PORT: 5000

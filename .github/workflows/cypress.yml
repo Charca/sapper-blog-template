@@ -1,4 +1,4 @@
-name: test
+name: Test action runner
 
 on:
   pull_request:
@@ -18,10 +18,15 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-      - name: Checkout
+      - name: Checkout project
         uses: actions/checkout@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout nodeJS
+        uses: actions/setup-node@master
+        with:
+          node-version: ${{ matrix.node }}
 
       - name: Caching
         uses: actions/cache@master
@@ -33,18 +38,13 @@ jobs:
             !~/.exclude
           key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
 
-      - name: Installation
-        uses: actions/setup-node@master
-        with:
-          node-version: ${{ matrix.node }}
+      - name: Install dependencies
         run: npm i
 
-      - name: Run cypress test
+      - name: Start testing
         run: npm run test
         env:
           CI: true
-          PORT: 5000
-          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
       - name: Artifact upload screenshots
@@ -69,7 +69,8 @@ jobs:
           name: upload chrome-videos
           path: cypress/videos/chrome
 
-      - run: |
+      - name: Size images and videos
+        run: |
           npx image-size cypress/screenshots/**/*.png
           ffprobe cypress/videos/*.mp4 || true
           mplayer -really-quiet -ao null -vo null -identify -frames 0 cypress/videos/*.mp4 || true
