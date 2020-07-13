@@ -1,8 +1,8 @@
 ---
 name: Request feature
 about: Suggest a new feature or an optimization for this project.
-title: "[NAME OF YOUR IMPROVEMENT]"
-labels: "feature"
+title: "What's the name of your improvement?"
+labels: ""
 assignees: ""
 ---
 
@@ -12,6 +12,6 @@ assignees: ""
 * ...
 
 
-**Links and Screenshots**
+**Links and/or Screenshots**
 
 * ...
