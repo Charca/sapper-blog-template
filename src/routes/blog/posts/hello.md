@@ -13,4 +13,4 @@ At the end I was so tired, look!
 
 But I did it... somehow! 😅
 
-![alt text](/images/blog/hello/002.webp "Wake up")
+![alt text](/images/blog/hello/hello002.webp "Wake up")
