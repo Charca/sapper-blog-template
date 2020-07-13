@@ -5,7 +5,7 @@ date: "2020-07-10T14:02:19.730Z"
 
 ## A day in the office
 
-Oh boy! It was so busy at the office! Hard decisions had to be made!
+Oh boy! It was so busy at the office! Tough decisions had to be made!
 
 ![alt text](/images/blog/office/office001.webp "Pug in front of a computer.")
 

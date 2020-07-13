@@ -2,16 +2,15 @@
 .env
 .history
 .vercel
-/__sapper__/
-/.cache/
-/.vscode/
-/coverage/
-/cypress/fixtures/
-/cypress/screenshots/
-/cypress/videos/
-/node_modules/
-/src/node_modules/
+__sapper__
+.cache
+.vscode
+coverage
+cypress/fixtures
+cypress/screenshots
+cypress/videos
+node_modules
+src/node_modules
 # cypress.env.json
 # package-lock.json
 yarn-error.log
-node_modules
