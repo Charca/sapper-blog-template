@@ -13,4 +13,4 @@ node_modules
 coverage
 *.lock
 *.log
-*.env.*
+*.env.json
