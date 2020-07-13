@@ -11,6 +11,6 @@ cypress/screenshots
 cypress/videos
 node_modules
 src/node_modules
-cypress.env.json
 package-lock.json
 yarn-error.log
+cypress.env.json
