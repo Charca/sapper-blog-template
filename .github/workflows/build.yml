@@ -3,17 +3,15 @@ name: Build action runner
 on:
   pull_request:
     paths-ignore:
-      - '*.md'
+      - '**/*.md'
 
 jobs:
   build:
-    name: on ${{ matrix.os }}
-
+    runs-on: ${{ matrix.os }}
+    
     strategy:
       matrix:
         os: [ubuntu-latest]
-
-    runs-on: ${{ matrix.os }}
 
     steps:
       - name: Checkout project
