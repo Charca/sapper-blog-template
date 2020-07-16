@@ -30,10 +30,9 @@ export default {
 				emitCss: true
 			}),
 			resolve(),
-            commonjs(),
-            markdown(),
-            glob(),
-
+      commonjs(),
+      markdown(),
+      glob(),
 			legacy && babel({
 				extensions: ['.js', '.mjs', '.html', '.svelte'],
 				runtimeHelpers: true,
@@ -73,8 +72,8 @@ export default {
 			}),
 			resolve(),
 			commonjs(),
-            markdown(),
-            glob()
+      markdown(),
+      glob()
 		],
 		external: Object.keys(pkg.dependencies).concat(
 			require('module').builtinModules || Object.keys(process.binding('natives'))
