@@ -12,16 +12,16 @@ This page is an adapted version of [markdown-test-page](https://github.com/fullp
 
 ## <a name="top"></a> Table of Contents
 
-* [Headings](#Headings)
-* [Paragraphs](#Paragraphs)
-* [Blockquotes](#Blockquotes)
-* [Lists](#Lists)
-* [Horizontal rule](#Horizontal)
-* [Table](#Table)
-* [Code](#Code)
-* [Inline elements](#Inline)
+- [Headings](#Headings)
+- [Paragraphs](#Paragraphs)
+- [Blockquotes](#Blockquotes)
+- [Lists](#Lists)
+- [Horizontal rule](#Horizontal)
+- [Table](#Table)
+- [Code](#Code)
+- [Inline elements](#Inline)
 
-***
+---
 
 # <a name="Headings"></a>Headings
 
@@ -48,7 +48,6 @@ Veniam enim esse amet veniam deserunt laboris amet enim consequat. Minim nostrud
 ###### Heading six
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-
 
 [[Top]](#top)
 
@@ -87,12 +86,12 @@ Adipisicing voluptate ipsum culpa voluptate id aute laboris labore esse fugiat v
 1. Longan
 2. Lychee
 3. Excepteur ad cupidatat do elit laborum amet cillum reprehenderit consequat quis.
-    Deserunt officia esse aliquip consectetur duis ut labore laborum commodo aliquip aliquip velit pariatur dolore.
+   Deserunt officia esse aliquip consectetur duis ut labore laborum commodo aliquip aliquip velit pariatur dolore.
 4. Marionberry
 5. Melon
-    - Cantaloupe
-    - Honeydew
-    - Watermelon
+   - Cantaloupe
+   - Honeydew
+   - Watermelon
 6. Miracle fruit
 7. Mulberry
 
@@ -100,8 +99,8 @@ Adipisicing voluptate ipsum culpa voluptate id aute laboris labore esse fugiat v
 
 - Olive
 - Orange
-    - Blood orange
-    - Clementine
+  - Blood orange
+  - Clementine
 - Papaya
 - Ut aute ipsum occaecat nisi culpa Lorem id occaecat cupidatat id id magna laboris ad duis. Fugiat cillum dolore veniam nostrud proident sint consectetur eiusmod irure adipisicing.
 - Passionfruit
@@ -112,7 +111,7 @@ Adipisicing voluptate ipsum culpa voluptate id aute laboris labore esse fugiat v
 
 In dolore velit aliquip labore mollit minim tempor veniam eu veniam ad in sint aliquip mollit mollit. Ex occaecat non deserunt elit laborum sunt tempor sint consequat culpa culpa qui sit. Irure ad commodo eu voluptate mollit cillum cupidatat veniam proident amet minim reprehenderit.
 
-***
+---
 
 In laboris eiusmod reprehenderit aliquip sit proident occaecat. Non sit labore anim elit veniam Lorem minim commodo eiusmod irure do minim nisi. Dolor amet cillum excepteur consequat sint non sint.
 
@@ -122,13 +121,13 @@ In laboris eiusmod reprehenderit aliquip sit proident occaecat. Non sit labore a
 
 Duis sunt ut pariatur reprehenderit mollit mollit magna dolore in pariatur nulla commodo sit dolor ad fugiat. Laboris amet ea occaecat duis eu enim exercitation deserunt ea laborum occaecat reprehenderit. Et incididunt dolor commodo consequat mollit nisi proident non pariatur in et incididunt id. Eu ut et Lorem ea ex magna minim ipsum ipsum do.
 
-| Table Heading 1 | Table Heading 2 | Center align    | Right align     | Table Heading 5 |
-| :-------------- | :-------------- | :-------------: | --------------: | :-------------- |
-| Item 1          | Item 2          | Item 3          | Item 4          | Item 5          |
-| Item 1          | Item 2          | Item 3          | Item 4          | Item 5          |
-| Item 1          | Item 2          | Item 3          | Item 4          | Item 5          |
-| Item 1          | Item 2          | Item 3          | Item 4          | Item 5          |
-| Item 1          | Item 2          | Item 3          | Item 4          | Item 5          |
+| Table Heading 1 | Table Heading 2 | Center align | Right align | Table Heading 5 |
+| :-------------- | :-------------- | :----------: | ----------: | :-------------- |
+| Item 1          | Item 2          |    Item 3    |      Item 4 | Item 5          |
+| Item 1          | Item 2          |    Item 3    |      Item 4 | Item 5          |
+| Item 1          | Item 2          |    Item 3    |      Item 4 | Item 5          |
+| Item 1          | Item 2          |    Item 3    |      Item 4 | Item 5          |
+| Item 1          | Item 2          |    Item 3    |      Item 4 | Item 5          |
 
 Minim id consequat adipisicing cupidatat laborum culpa veniam non consectetur et duis pariatur reprehenderit eu ex consectetur. Sunt nisi qui eiusmod ut cillum laborum Lorem officia aliquip laboris ullamco nostrud laboris non irure laboris. Cillum dolore labore Lorem deserunt mollit voluptate esse incididunt ex dolor.
 
@@ -147,12 +146,25 @@ Et fugiat ad nisi amet magna labore do cillum fugiat occaecat cillum Lorem proid
 ```html
 <div class="md:flex">
   <div class="md:flex-shrink-0">
-    <img class="rounded-lg md:w-56" src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=448&q=80" alt="Woman paying for a purchase">
+    <img
+      class="rounded-lg md:w-56"
+      src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=448&q=80"
+      alt="Woman paying for a purchase"
+    />
   </div>
   <div class="mt-4 md:mt-0 md:ml-6">
-    <div class="uppercase tracking-wide text-sm text-indigo-600 font-bold">Marketing</div>
-    <a href="#" class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline">Finding customers for your new business</a>
-    <p class="mt-2 text-gray-600">Getting a new business off the ground is a lot of hard work. Here are five ideas you can use to find your first customers.</p>
+    <div class="uppercase tracking-wide text-sm text-indigo-600 font-bold">
+      Marketing
+    </div>
+    <a
+      href="#"
+      class="block mt-1 text-lg leading-tight font-semibold text-gray-900 hover:underline"
+      >Finding customers for your new business</a
+    >
+    <p class="mt-2 text-gray-600">
+      Getting a new business off the ground is a lot of hard work. Here are five
+      ideas you can use to find your first customers.
+    </p>
   </div>
 </div>
 ```
@@ -161,15 +173,15 @@ Ex amet id ex aliquip id do laborum excepteur exercitation elit sint commodo occ
 
 ```html
 <script>
-  let count = 0;
+  let count = 0
 
   function handleClick() {
-    count += 1;
+    count += 1
   }
 </script>
 
-<button on:click={handleClick}>
-	Clicked {count} {count === 1 ? 'time' : 'times'}
+<button on:click="{handleClick}">
+  Clicked {count} {count === 1 ? 'time' : 'times'}
 </button>
 ```
 
@@ -181,7 +193,7 @@ Sint ea anim ipsum ad commodo cupidatat do **exercitation** incididunt et minim 
 
 ![Super wide](https://placekitten.com/1280/800)
 
-*Proident sit veniam in est proident officia adipisicing* ea tempor cillum non cillum velit deserunt. Voluptate laborum incididunt sit consectetur Lorem irure incididunt voluptate nostrud. Commodo ut eiusmod tempor cupidatat esse enim minim ex anim consequat. Mollit sint culpa qui laboris quis consectetur ad sint esse. Amet anim anim minim ullamco et duis non irure. Sit tempor adipisicing ea laboris `culpa ex duis sint` anim aute reprehenderit id eu ea. Aute [excepteur proident](#) Lorem minim adipisicing nostrud mollit ad ut voluptate do nulla esse occaecat aliqua sint anim.
+_Proident sit veniam in est proident officia adipisicing_ ea tempor cillum non cillum velit deserunt. Voluptate laborum incididunt sit consectetur Lorem irure incididunt voluptate nostrud. Commodo ut eiusmod tempor cupidatat esse enim minim ex anim consequat. Mollit sint culpa qui laboris quis consectetur ad sint esse. Amet anim anim minim ullamco et duis non irure. Sit tempor adipisicing ea laboris `culpa ex duis sint` anim aute reprehenderit id eu ea. Aute [excepteur proident](#) Lorem minim adipisicing nostrud mollit ad ut voluptate do nulla esse occaecat aliqua sint anim.
 
 ![Not so big](https://placekitten.com/480/400)
 
