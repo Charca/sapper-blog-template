@@ -41,6 +41,7 @@ This is where your markdown posts live in. All `.md` files in this directory are
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/Charca/sapper-blog-template)
 
+You'll need to update the Netlify Build command from `npm run build` to `npm run build && npm run export` to deploy successfully.
 
 ## 🐛 Bugs and feedback
 
